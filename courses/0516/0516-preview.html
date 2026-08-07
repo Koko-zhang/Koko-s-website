@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>0516 课程回顾 · 《外贸三要素与基础认识》</title>
+<style>
+  :root{
+    --ink:#f6f7ff;
+    --panel:#ffffff;
+    --line:rgba(8,34,203,.14);
+    --cyan:#49ACF7;
+    --blue:#0822CB;
+    --gold:#F1A9F9;
+    --orange:#6328DE;
+    --text:#121747;
+    --muted:#6972a6;
+    --soft:#f0f3ff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:"PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;
+    line-height:1.7;
+    min-width:320px;
+  }
+  body:before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      linear-gradient(rgba(49,230,209,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(49,230,209,.035) 1px,transparent 1px);
+    background-size:40px 40px;
+    mask-image:linear-gradient(to bottom,#000,transparent 88%);
+  }
+  .aurora{
+    position:fixed;inset:-30% -20% auto;height:760px;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(circle at 22% 40%,rgba(49,230,209,.14),transparent 35%),
+      radial-gradient(circle at 70% 20%,rgba(83,168,255,.15),transparent 34%),
+      radial-gradient(circle at 86% 62%,rgba(255,139,94,.08),transparent 28%);
+    filter:blur(20px);
+  }
+  .shell{
+    position:relative;z-index:1;
+    max-width:1080px;margin:auto;
+    padding:32px 28px 80px;
+  }
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;margin-bottom:24px;
+  }
+  .brand{
+    display:inline-flex;align-items:center;gap:0;
+    align-self:flex-start;
+  }
+  .brand img{height:46px;width:auto;display:block}
+  .brand-text{
+    font-size:20px;font-weight:700;color:var(--text);
+    letter-spacing:.08em;margin-left:0;white-space:nowrap;
+    line-height:1;
+  }
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:8px 22px;border-radius:999px;
+    background:rgba(73,172,247,.12);
+    color:var(--blue);font-size:13px;font-weight:600;
+    border:1px solid rgba(73,172,247,.3);
+    white-space:nowrap;flex-shrink:0;
+  }
+  .pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+
+  .hero{
+    background:var(--panel);border-radius:24px;padding:36px 32px;
+    border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(8,34,203,.06);
+    margin-bottom:24px;
+  }
+  .hero h1{
+    font-size:32px;line-height:1.3;margin:0 0 12px;
+    color:var(--text);
+  }
+  .hero h1 span.accent{
+    background:linear-gradient(135deg,var(--cyan),var(--blue));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .meta{
+    display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);
+    font-size:13px;margin-top:18px;
+    padding-top:18px;border-top:1px dashed var(--line);
+  }
+  .hero .meta b{color:var(--text);font-weight:600}
+
+  .section{
+    background:var(--panel);border-radius:20px;padding:28px 28px;
+    border:1px solid var(--line);margin-bottom:18px;
+    box-shadow:0 12px 40px rgba(8,34,203,.05);
+  }
+  .section h2{
+    font-size:20px;margin:0 0 18px;display:flex;align-items:center;gap:10px;
+    color:var(--text);
+  }
+  .section h2::before{
+    content:"";width:5px;height:22px;border-radius:3px;
+    background:linear-gradient(180deg,var(--cyan),var(--blue));
+  }
+  .summary{font-size:15.5px;color:#2a3464;text-indent:2em}
+
+  .cards{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:18px;
+  }
+  .card{
+    background:linear-gradient(180deg,#fff 0%,var(--soft) 100%);
+    border-radius:16px;padding:22px;
+    border:1px solid var(--line);
+    transition:transform .2s,box-shadow .2s;
+    position:relative;overflow:hidden;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(8,34,203,.1);
+  }
+  .card::before{
+    content:"";position:absolute;inset:0 0 auto 0;height:3px;
+    background:linear-gradient(90deg,var(--cyan),var(--blue));
+  }
+  .card .num{
+    font-size:11px;font-weight:700;color:var(--blue);
+    letter-spacing:.2em;
+  }
+  .card h3{
+    margin:6px 0 12px;font-size:17px;color:var(--text);line-height:1.4;
+  }
+  .card p{margin:0 0 10px;font-size:14px;color:#3a4470}
+  .card ul{padding-left:18px;margin:8px 0;font-size:14px;color:#3a4470}
+  .card ul li{margin-bottom:4px}
+  .card .quote{
+    margin-top:12px;padding:10px 14px;border-radius:10px;
+    background:rgba(73,172,247,.1);border-left:3px solid var(--cyan);
+    font-size:13.5px;color:var(--blue);font-weight:600;
+  }
+  .card .quote::before{content:"「";color:var(--cyan);font-weight:700;margin-right:2px}
+  .card .quote::after{content:"」";color:var(--cyan);font-weight:700;margin-left:2px}
+
+  .card h4{
+    margin:14px 0 6px;font-size:13.5px;color:var(--blue);
+    font-weight:700;letter-spacing:.05em;
+    display:flex;align-items:center;gap:6px;
+  }
+  .card h4::before{
+    content:"";width:4px;height:14px;border-radius:2px;
+    background:linear-gradient(180deg,var(--cyan),var(--blue));
+  }
+  .card .small{font-size:12.5px;color:var(--muted);margin:4px 0 8px}
+
+  table{
+    width:100%;border-collapse:collapse;margin-top:8px;
+    font-size:13.5px;
+  }
+  th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:600;font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+  td code{background:var(--soft);padding:2px 6px;border-radius:5px;font-size:12.5px;color:var(--blue)}
+
+  .toc{counter-reset:toc;list-style:none;padding:0;margin:0}
+  .toc li{
+    counter-increment:toc;
+    padding:12px 16px;border-radius:10px;margin-bottom:8px;
+    background:var(--soft);font-size:14.5px;
+    display:flex;align-items:center;gap:12px;
+    border-left:3px solid var(--cyan);
+  }
+  .toc li::before{
+    content:counter(toc,decimal-leading-zero);
+    font-weight:700;color:var(--blue);font-size:13px;letter-spacing:.1em;
+    min-width:28px;
+  }
+
+  .notice{
+    background:linear-gradient(135deg,rgba(241,169,249,.12),rgba(99,40,222,.08));
+    border:1px solid rgba(241,169,249,.4);
+    border-radius:12px;padding:14px 18px;
+    font-size:13px;color:#5a3580;
+    display:flex;align-items:center;gap:10px;
+  }
+  .notice::before{
+    content:"i";font-style:italic;font-weight:700;
+    width:22px;height:22px;border-radius:50%;
+    background:rgba(99,40,222,.15);color:var(--orange);
+    display:grid;place-items:center;font-size:13px;
+  }
+
+  .quiz-cta{padding:0;overflow:hidden;border:1px solid rgba(73,172,247,.35);
+    background:linear-gradient(135deg,#fff 0%,rgba(73,172,247,.05) 100%)}
+  .cta-link{
+    display:flex;align-items:center;gap:18px;
+    padding:22px 28px;text-decoration:none;color:inherit;
+    transition:transform .15s,box-shadow .15s;
+  }
+  .cta-link:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(8,34,203,.1)}
+  .cta-icon{
+    width:54px;height:54px;border-radius:14px;
+    background:linear-gradient(135deg,var(--cyan),var(--blue));
+    color:#fff;display:grid;place-items:center;flex-shrink:0;
+    box-shadow:0 6px 18px rgba(8,34,203,.18);
+  }
+  .cta-text{flex:1;min-width:0}
+  .cta-title{font-size:18px;font-weight:700;color:var(--text);line-height:1.3}
+  .cta-subtitle{font-size:13px;color:var(--muted);margin-top:5px}
+  .cta-arrow{
+    width:42px;height:42px;border-radius:50%;
+    background:linear-gradient(135deg,var(--cyan),var(--blue));
+    color:#fff;display:grid;place-items:center;
+    font-size:20px;font-weight:700;flex-shrink:0;
+    box-shadow:0 6px 16px rgba(8,34,203,.18);
+    transition:transform .15s;
+  }
+  .cta-link:hover .cta-arrow{transform:translateX(3px)}
+
+  footer{
+    margin-top:40px;text-align:center;color:var(--muted);
+    font-size:12px;letter-spacing:.05em;
+  }
+
+  @media(max-width:640px){
+    .hero{padding:24px 20px}
+    .hero h1{font-size:24px}
+    .section{padding:20px 18px}
+    .cards{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<div class="shell">
+
+  <div class="topbar">
+    <div class="brand">
+      <img src="qiancheng-logo.png" alt="前程讲堂" />
+      <span class="brand-text">前程讲堂</span>
+    </div>
+    <div class="pill">课程回顾</div>
+  </div>
+
+  <section class="hero">
+    <h1>
+      0516<span class="accent">《外贸三要素与基础认识》</span>
+    </h1>
+    <div class="meta">
+      <span>讲师 <b>周超磊</b></span>
+      <span>分类 <b>入门 · 外贸基础</b></span>
+      <span>状态 <b>待审核</b></span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>课程摘要</h2>
+    <p class="summary">
+      本课是前程内训系列的入门第一课。用"客户—产品—服务"三角框架切入外贸本质：客户即市场需求、产品即最基本价值、服务即客户的私人订制，三者共同构成业务底盘。再把"询盘—报价—样品—合同—备货—验货—物流—清关—收款"全流程的关键术语（MOQ、Lead Time、AQL、PSI、INCOTERMS 等）串成一条线。
+    </p>
+  </section>
+
+  <section class="section">
+    <h2>课程目录</h2>
+    <ol class="toc">
+      <li>外贸业务基础三要素（客户 / 产品 / 服务）</li>
+      <li>外贸基础流程（询盘 → 报价 → 样品 → 合同 → 备货 → 验货 → 物流 → 清关 → 收款）</li>
+      <li>外贸基础术语（报价 / 样品 / 合同 / 单据）</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>关键知识点卡片（5 张）</h2>
+    <div class="cards">
+
+      <div class="card">
+        <div class="num">CARD 01</div>
+        <h3>外贸业务的三要素：客户、产品、服务</h3>
+        <p>三角框架从任何一角出发都站得住。三角之外还有四根支撑柱：资金与财务、设计与开发、保质保量的后端、多重存在的服务（账期、IKEA/Inditex/Zara Home 供应商模式、GHT 等）。</p>
+        <div class="quote">业务的天花板往往由三角中"最短的那块木板"决定</div>
+      </div>
+
+      <div class="card">
+        <div class="num">CARD 02</div>
+        <h3>外贸基础流程：每个环节都有"可调节误差"</h3>
+        <p>询盘 → 报价 → 样品 → 合同 → 备货 → 验货 → 物流 → 清关 → 收款。每个环节都会产生误差，关键不是消除误差，而是<strong>在哪个环节、用什么方式去调节</strong>。</p>
+        <p style="color:var(--blue);font-weight:600">报价环节的误差没控住，后面所有流程都要买单。</p>
+      </div>
+
+      <div class="card">
+        <div class="num">CARD 03</div>
+        <h3>报价的"价从何来"：六个核心术语</h3>
+        <table>
+          <tr><th>术语</th><th>含义</th></tr>
+          <tr><td><code>Unit Price</code></td><td>单价</td></tr>
+          <tr><td><code>MOQ</code></td><td>Minimum Order Quantity 起订量</td></tr>
+          <tr><td><code>Lead Time</code></td><td>生产交期</td></tr>
+          <tr><td><code>Validity</code></td><td>报价有效期</td></tr>
+          <tr><td><code>Payment Terms</code></td><td>T/T（电汇）/ L/C（信用证）/ D/P（付款交单）</td></tr>
+          <tr><td><code>Port of L / D</code></td><td>起运港 / 目的港</td></tr>
+        </table>
+        <div class="quote">报价表 = 价格 × 数量 + 时间和风险条款</div>
+      </div>
+
+      <div class="card">
+        <div class="num">CARD 04</div>
+        <h3>样品链：9 种样品别再混淆</h3>
+        <ul>
+          <li><b>Sample</b> 样品（总称）</li>
+          <li><b>PPS</b> 产前样（大货生产前最后确认）</li>
+          <li><b>Production sample</b> 大货样</li>
+          <li><b>Approval sample</b> 确认样（最关键）</li>
+          <li><b>Counter sample</b> 对等样 / 回样</li>
+          <li><b>Reference sample</b> 参考样</li>
+          <li><b>Color sample / swatch</b> 色样 / 色卡</li>
+          <li><b>Lab dip</b> 染色小样（面料）</li>
+          <li><b>Revise sample</b> 修改样</li>
+        </ul>
+        <div class="quote">确认你该做的 &amp; 客户要的</div>
+      </div>
+
+      <div class="card">
+        <div class="num">CARD 05</div>
+        <h3>合同履行：验货 + 物流 + 单据全解</h3>
+
+        <h4>① 验货方式</h4>
+        <ul>
+          <li><b>PSI</b>（Pre-shipment inspection）出货前检验，<b>最常用</b></li>
+          <li><b>Random inspection</b> 随机抽检</li>
+          <li><b>Third-party inspection</b> 第三方验货</li>
+        </ul>
+
+        <h4>② 缺陷分级（AQL 是核心标准）</h4>
+        <table>
+          <tr><th>等级</th><th>含义</th><th>处理原则</th></tr>
+          <tr><td><b>Critical</b></td><td>严重缺陷</td><td>安全问题，零容忍</td></tr>
+          <tr><td><b>Major</b></td><td>主要缺陷</td><td>影响使用</td></tr>
+          <tr><td><b>Minor</b></td><td>次要缺陷</td><td>外观小问题</td></tr>
+        </table>
+        <p class="small"><b>AQL</b>（Acceptance Quality Limit）接受质量限——验货最核心标准，用百分比衡量可接受的缺陷上限。</p>
+
+        <h4>③ 验货报告常用词</h4>
+        <ul>
+          <li><b>Defect / Fault</b> 不良、缺陷；<b>Pass</b> 合格 / <b>Fail</b> 不合格</li>
+          <li><b>QC</b> 质检员 / <b>Inspector</b> 验货员</li>
+          <li><b>Inspection report</b> 验货报告 / <b>Quantity checked</b> 抽检数量</li>
+          <li><b>Acceptance rate</b> 合格率 / <b>Rejection rate</b> 不良率</li>
+        </ul>
+
+        <h4>④ 不合格后的处理动作</h4>
+        <ul>
+          <li><b>Rework</b> 返工 / <b>Repair</b> 返修</li>
+          <li><b>Sorting</b> 挑选 / <b>Scrap</b> 报废</li>
+          <li><b>Re-inspect</b> 复检</li>
+          <li><b>Hold shipment</b> 扣货、暂缓出货 / <b>Release shipment</b> 放行出货</li>
+        </ul>
+
+        <h4>⑤ 物流方式 &amp; 清关术语</h4>
+        <ul>
+          <li><b>Door to Door</b> 门到门 / <b>Port to Port</b> 港到港</li>
+          <li><b>Transshipment</b> 转运</li>
+          <li><b>Customs Clearance</b> 清关 / <b>D/O</b>（Delivery Order）提货单</li>
+          <li><b>Pick up</b> 提货 / <b>Consignee</b> 收货人 / <b>Consignor</b> 发货人</li>
+        </ul>
+
+        <h4>⑥ 贸易单据（5 件套 + 优惠证）</h4>
+        <table>
+          <tr><th>单据</th><th>用途</th></tr>
+          <tr><td><b>Invoice</b> 商业发票</td><td>货值、品名、数量</td></tr>
+          <tr><td><b>Packing List</b> 装箱单</td><td>包装、毛重、净重</td></tr>
+          <tr><td><b>Contract</b> 合同</td><td>买卖双方合同</td></tr>
+          <tr><td><b>B/L</b> 海运提单</td><td>海运提货凭证</td></tr>
+          <tr><td><b>AWB</b> 空运运单</td><td>空运提货凭证</td></tr>
+          <tr><td><b>CO / FORM E·F·R</b> 原产地证</td><td>享受关税优惠</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section quiz-cta">
+    <a href="0516-quiz.html" class="cta-link">
+      <div class="cta-icon">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div class="cta-text">
+        <div class="cta-title">课堂小测</div>
+        <div class="cta-subtitle">10 道单选题 · 检验本节学习效果 · 完成后可积累积分</div>
+      </div>
+      <span class="cta-arrow">→</span>
+    </a>
+  </section>
+
+  <section class="section">
+    <h2>关联课程</h2>
+    <ul style="margin:0;padding-left:0;list-style:none;font-size:14.5px">
+      <li style="padding:12px 16px;border-radius:10px;background:var(--soft);border-left:3px solid var(--cyan)">
+        0608<span class="accent" style="margin-left:6px">《交易与谈判的撮合》</span>
+      </li>
+    </ul>
+  </section>
+
+  <footer>
+    本回顾由 AI 基于 PPT 文本自动生成 · 仅供审阅 · 最终入站需讲师审核确认
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>0516 课堂小测 · 《外贸三要素与基础认识》</title>
+<style>
+  :root{
+    --ink:#f6f7ff;
+    --panel:#ffffff;
+    --line:rgba(8,34,203,.14);
+    --cyan:#49ACF7;
+    --blue:#0822CB;
+    --orange:#6328DE;
+    --green:#1f9d55;
+    --red:#c8392f;
+    --gold:#F1A9F9;
+    --text:#121747;
+    --muted:#6972a6;
+    --soft:#f0f3ff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--ink);color:var(--text);
+    font-family:"PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;
+    line-height:1.7;min-width:320px;
+  }
+  body:before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      linear-gradient(rgba(49,230,209,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(49,230,209,.035) 1px,transparent 1px);
+    background-size:40px 40px;
+    mask-image:linear-gradient(to bottom,#000,transparent 88%);
+  }
+  .aurora{
+    position:fixed;inset:-30% -20% auto;height:760px;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(circle at 22% 40%,rgba(49,230,209,.14),transparent 35%),
+      radial-gradient(circle at 70% 20%,rgba(83,168,255,.15),transparent 34%),
+      radial-gradient(circle at 86% 62%,rgba(255,139,94,.08),transparent 28%);
+    filter:blur(20px);
+  }
+  .shell{position:relative;z-index:1;max-width:880px;margin:auto;padding:32px 28px 80px}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}
+  .brand{display:inline-flex;align-items:center;gap:0;align-self:flex-start}
+  .brand img{height:46px;width:auto;display:block}
+  .brand-text{font-size:20px;font-weight:700;color:var(--text);letter-spacing:.08em;margin-left:0;white-space:nowrap;line-height:1}
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;padding:8px 22px;border-radius:999px;
+    background:rgba(73,172,247,.12);color:var(--blue);
+    font-size:13px;font-weight:600;border:1px solid rgba(73,172,247,.3);
+    white-space:nowrap;flex-shrink:0;text-decoration:none;
+  }
+  .pill::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+
+  .hero{
+    background:var(--panel);border-radius:24px;padding:36px 32px;
+    border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(8,34,203,.06);
+    margin-bottom:20px;
+  }
+  .hero h1{font-size:28px;line-height:1.3;margin:0 0 12px;color:var(--text)}
+  .hero h1 span.accent{background:linear-gradient(135deg,var(--cyan),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:13px;margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}
+  .hero .meta b{color:var(--text);font-weight:600}
+
+  .progress-bar{
+    position:sticky;top:0;z-index:5;margin:-20px -28px 20px;
+    padding:10px 28px;background:rgba(255,255,255,.85);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:14px;font-size:13px;color:var(--muted);
+  }
+  .progress-track{flex:1;height:6px;background:var(--soft);border-radius:3px;overflow:hidden}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--blue));width:0%;transition:width .3s}
+
+  .question{
+    background:var(--panel);border-radius:20px;padding:24px 26px;
+    border:1px solid var(--line);margin-bottom:16px;
+    box-shadow:0 8px 28px rgba(8,34,203,.04);
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .question.answered{border-color:rgba(73,172,247,.4)}
+  .question.correct{border-color:rgba(31,157,85,.4);background:linear-gradient(180deg,#fff 0%,#f0fbf4 100%)}
+  .question.wrong{border-color:rgba(200,57,47,.4);background:linear-gradient(180deg,#fff 0%,#fdf3f2 100%)}
+
+  .q-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+  .q-num{
+    font-size:11px;font-weight:700;color:var(--blue);
+    background:rgba(73,172,247,.12);padding:3px 10px;border-radius:999px;
+    letter-spacing:.1em;flex-shrink:0;
+  }
+  .q-title{font-size:16px;font-weight:600;color:var(--text);margin:0;line-height:1.5}
+
+  .options{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+  .opt{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:12px 16px;border-radius:12px;border:1.5px solid var(--line);
+    background:#fff;cursor:pointer;font-size:14px;
+    transition:all .15s;
+  }
+  .opt:hover{border-color:rgba(73,172,247,.5);background:var(--soft)}
+  .opt input{margin-top:3px;accent-color:var(--blue);cursor:pointer;flex-shrink:0}
+  .opt.selected{border-color:var(--blue);background:rgba(73,172,247,.08)}
+  .opt.correct-answer{border-color:var(--green);background:rgba(31,157,85,.08)}
+  .opt.wrong-pick{border-color:var(--red);background:rgba(200,57,47,.08)}
+  .opt .opt-key{
+    font-weight:700;color:var(--blue);font-size:13px;min-width:18px;
+  }
+  .opt.correct-answer .opt-key{color:var(--green)}
+  .opt.wrong-pick .opt-key{color:var(--red)}
+  .opt.disabled{pointer-events:none}
+
+  .feedback{
+    margin-top:14px;padding:12px 16px;border-radius:10px;
+    font-size:13.5px;line-height:1.6;display:none;
+  }
+  .feedback.show{display:block}
+  .feedback.ok{background:rgba(31,157,85,.08);color:#1a6b3a;border-left:3px solid var(--green)}
+  .feedback.no{background:rgba(200,57,47,.08);color:#8a2820;border-left:3px solid var(--red)}
+
+  .actions{
+    display:flex;justify-content:center;gap:14px;margin-top:24px;
+    padding:20px 0;border-top:1px dashed var(--line);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;border-radius:999px;
+    font-size:14px;font-weight:600;cursor:pointer;
+    border:none;text-decoration:none;
+    transition:transform .15s,box-shadow .15s;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{
+    background:linear-gradient(135deg,var(--cyan),var(--blue));color:#fff;
+    box-shadow:0 8px 20px rgba(8,34,203,.18);
+  }
+  .btn-ghost{
+    background:#fff;color:var(--text);
+    border:1.5px solid var(--line);
+  }
+  .btn:disabled{opacity:.5;pointer-events:none}
+
+  .result{
+    background:linear-gradient(135deg,#fff,var(--soft));
+    border-radius:20px;padding:28px 28px;
+    border:1px solid var(--line);margin-bottom:20px;text-align:center;
+    box-shadow:0 12px 40px rgba(8,34,203,.06);
+    display:none;
+  }
+  .result.show{display:block}
+  .result .score-num{font-size:48px;font-weight:700;line-height:1.1;
+    background:linear-gradient(135deg,var(--cyan),var(--blue));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .result .score-of{font-size:14px;color:var(--muted);margin-top:4px}
+  .result .verdict{font-size:18px;font-weight:600;margin-top:14px}
+  .result .verdict.great{color:var(--green)}
+  .result .verdict.ok{color:var(--cyan)}
+  .result .verdict.poor{color:var(--red)}
+  .result .result-tip{font-size:13.5px;color:var(--muted);margin-top:10px}
+
+  footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.05em}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<div class="shell">
+
+  <div class="topbar">
+    <a class="brand" href="0516-preview.html" style="text-decoration:none;color:inherit">
+      <img src="qiancheng-logo.png" alt="前程讲堂" />
+      <span class="brand-text">前程讲堂</span>
+    </a>
+    <a class="pill" href="0516-preview.html">返回课程</a>
+  </div>
+
+  <div class="progress-bar">
+    <span id="progress-text">已作答 0 / 10</span>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <section class="hero">
+    <h1>0516<span class="accent">《外贸三要素与基础认识》</span>课堂小测</h1>
+    <div class="meta">
+      <span>题量 <b>10 道单选题</b></span>
+      <span>建议时长 <b>5~8 分钟</b></span>
+      <span>来源 <b>本节课 PPT 内容</b></span>
+    </div>
+  </section>
+
+  <div class="result" id="result">
+    <div class="score-num" id="score-num">0</div>
+    <div class="score-of">/ 10 正确</div>
+    <div class="verdict" id="verdict"></div>
+    <div class="result-tip" id="result-tip"></div>
+  </div>
+
+  <form id="quiz" onsubmit="return false">
+
+    <div class="question" data-q="1" data-answer="C">
+      <div class="q-head">
+        <span class="q-num">Q 01</span>
+        <h3 class="q-title">外贸业务基础三要素中，下列哪一项<b>不在</b>三角框架内？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q1" value="A"><span class="opt-key">A</span><span>客户（市场需求）</span></label>
+        <label class="opt"><input type="radio" name="q1" value="B"><span class="opt-key">B</span><span>产品（最基本价值）</span></label>
+        <label class="opt"><input type="radio" name="q1" value="C"><span class="opt-key">C</span><span>资金与财务</span></label>
+        <label class="opt"><input type="radio" name="q1" value="D"><span class="opt-key">D</span><span>服务（客户的私人订制）</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-q="2" data-answer="B">
+      <div class="q-head">
+        <span class="q-num">Q 02</span>
+        <h3 class="q-title">在"询盘→报价→样品→合同→备货→验货→物流→清关→收款"这条流程中，哪个环节的误差最容易影响后续所有流程？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q2" value="A"><span class="opt-key">A</span><span>询盘</span></label>
+        <label class="opt"><input type="radio" name="q2" value="B"><span class="opt-key">B</span><span>报价</span></label>
+        <label class="opt"><input type="radio" name="q2" value="C"><span class="opt-key">C</span><span>样品</span></label>
+        <label class="opt"><input type="radio" name="q2" value="D"><span class="opt-key">D</span><span>合同</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-q="3" data-answer="B">
+      <div class="q-head">
+        <span class="q-num">Q 03</span>
+        <h3 class="q-title">以下哪个术语表示"最小起订量"？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q3" value="A"><span class="opt-key">A</span><span>Unit Price</span></label>
+        <label class="opt"><input type="radio" name="q3" value="B"><span class="opt-key">B</span><span>MOQ</span></label>
+        <label class="opt"><input type="radio" name="q3" value="C"><span class="opt-key">C</span><span>Lead Time</span></label>
+        <label class="opt"><input type="radio" name="q3" value="D"><span class="opt-key">D</span><span>Validity</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-q="4" data-answer="C">
+      <div class="q-head">
+        <span class="q-num">Q 04</span>
+        <h3 class="q-title">在 9 种样品中，哪一种是"客户确认后才能生产"的关键节点？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q4" value="A"><span class="opt-key">A</span><span>PPS（Pre-production sample）</span></label>
+        <label class="opt"><input type="radio" name="q4" value="B"><span class="opt-key">B</span><span>Production sample（大货样）</span></label>
+        <label class="opt"><input type="radio" name="q4" value="C"><span class="opt-key">C</span><span>Approval sample（确认样）</span></label>
+        <label class="opt"><input type="radio" name="q4" value="D"><span class="opt-key">D</span><span>Counter sample（对等样）</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-q="5" data-answer="A">
+      <div class="q-head">
+        <span class="q-num">Q 05</span>
+        <h3 class="q-title">AQL（Acceptance Quality Limit）在验货报告中的含义是什么？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q5" value="A"><span class="opt-key">A</span><span>接受质量限——验货最核心标准</span></label>
+        <label class="opt"><input type="radio" name="q5" value="B"><span class="opt-key">B</span><span>出货前检验（Pre-shipment inspection）</span></label>
+        <label class="opt"><input type="radio" name="q5" value="C"><span class="opt-key">C</span><span>抽检数量（Quantity checked）</span></label>
+        <label class="opt"><input type="radio" name="q5" value="D"><span class="opt-key">D</span><span>缺陷等级（Critical/Major/Minor）</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-q="6" data-answer="A">
+      <div class="q-head">
+        <span class="q-num">Q 06</span>
+        <h3 class="q-title">以下哪一种缺陷被定义为"安全问题，零容忍"？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q6" value="A"><span class="opt-key">A</span><span>Critical（严重缺陷）</span></label>
+        <label class="opt"><input type="radio" name="q6" value="B"><span class="opt-key">B</span><span>Major（主要缺陷）</span></label>
+        <label class="opt"><input type="radio" name="q6" value="C"><span class="opt-key">C</span><span>Minor（次要缺陷）</span></label>
+        <label class="opt"><input type="radio" name="q6" value="D"><span class="opt-key">D</span><span>Defect（一般不良）</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-q="7" data-answer="B">
+      <div class="q-head">
+        <span class="q-num">Q 07</span>
+        <h3 class="q-title">"Hold shipment" 在出货环节中的正确含义是？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q7" value="A"><span class="opt-key">A</span><span>放行出货</span></label>
+        <label class="opt"><input type="radio" name="q7" value="B"><span class="opt-key">B</span><span>扣货、暂缓出货</span></label>
+        <label class="opt"><input type="radio" name="q7" value="C"><span class="opt-key">C</span><span>复检（Re-inspect）</span></label>
+        <label class="opt"><input type="radio" name="q7" value="D"><span class="opt-key">D</span><span>挑选后放行</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-q="8" data-answer="B">
+      <div class="q-head">
+        <span class="q-num">Q 08</span>
+        <h3 class="q-title">海运提单（B/L）对应的空运单据是以下哪一个？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q8" value="A"><span class="opt-key">A</span><span>Invoice（商业发票）</span></label>
+        <label class="opt"><input type="radio" name="q8" value="B"><span class="opt-key">B</span><span>AWB（空运运单）</span></label>
+        <label class="opt"><input type="radio" name="q8" value="C"><span class="opt-key">C</span><span>Packing List（装箱单）</span></label>
+        <label class="opt"><input type="radio" name="q8" value="D"><span class="opt-key">D</span><span>CO（原产地证）</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-q="9" data-answer="D">
+      <div class="q-head">
+        <span class="q-num">Q 09</span>
+        <h3 class="q-title">"Customs Clearance" 在外贸流程中的含义是？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q9" value="A"><span class="opt-key">A</span><span>商业发票</span></label>
+        <label class="opt"><input type="radio" name="q9" value="B"><span class="opt-key">B</span><span>提货单（Delivery Order）</span></label>
+        <label class="opt"><input type="radio" name="q9" value="C"><span class="opt-key">C</span><span>门到门运输</span></label>
+        <label class="opt"><input type="radio" name="q9" value="D"><span class="opt-key">D</span><span>清关</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="question" data-q="10" data-answer="D">
+      <div class="q-head">
+        <span class="q-num">Q 10</span>
+        <h3 class="q-title">以下哪种单据用于享受进口国的<b>关税优惠</b>？</h3>
+      </div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="q10" value="A"><span class="opt-key">A</span><span>Invoice 商业发票</span></label>
+        <label class="opt"><input type="radio" name="q10" value="B"><span class="opt-key">B</span><span>Packing List 装箱单</span></label>
+        <label class="opt"><input type="radio" name="q10" value="C"><span class="opt-key">C</span><span>Contract 合同</span></label>
+        <label class="opt"><input type="radio" name="q10" value="D"><span class="opt-key">D</span><span>CO / FORM E·F·R 原产地证</span></label>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn btn-primary" id="submit-btn">提交查看得分</button>
+      <button type="button" class="btn btn-ghost" id="reset-btn">重新作答</button>
+    </div>
+
+  </form>
+
+  <footer>
+    本课堂小测由 AI 基于本节课 PPT 内容自动出题 · 提交结果仅供学员自查学习效果
+  </footer>
+
+</div>
+
+<script>
+const EXPLANATIONS = {
+  1: '客户/产品/服务是三角框架；资金与财务是三角外的<b>四根支撑柱之一</b>（还有设计与开发、保质保量的后端、多重存在的服务）。',
+  2: '报价环节的误差没控住，后面所有流程都要买单——这是本节课的核心洞察之一。',
+  3: '<b>MOQ</b>（Minimum Order Quantity 起订量）；Unit Price 单价 / Lead Time 生产交期 / Validity 报价有效期。',
+  4: '<b>Approval sample 确认样</b>——客户确认后才能生产，是样品链中<b>最关键的一道</b>。',
+  5: '<b>AQL</b> = Acceptable Quality Level 接受质量限，是验货最核心的标准；PSI 是验货方式、Quantity checked 是抽检数量、Critical/Major/Minor 是缺陷分级。',
+  6: '<b>Critical 严重缺陷</b>：安全问题，零容忍；Major 影响使用、Minor 外观小问题。',
+  7: '<b>Hold shipment</b> 扣货、暂缓出货；与之对应的是 Release shipment 放行出货。',
+  8: '<b>B/L</b>（Bill of Lading 海运提单） ↔ <b>AWB</b>（Air Waybill 空运运单）。',
+  9: '<b>Customs Clearance</b> 即清关；D/O（Delivery Order）才是提货单。',
+  10:'<b>CO / FORM E·F·R 原产地证</b> 用于享受关税优惠（中国—东盟 FORM E、中国—韩国 FORM F、中国—智利 FORM R 等）。'
+};
+
+document.querySelectorAll('.opt input[type=radio]').forEach(input => {
+  input.addEventListener('change', e => {
+    const question = e.target.closest('.question');
+    question.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+    e.target.closest('.opt').classList.add('selected');
+    question.classList.add('answered');
+    updateProgress();
+  });
+});
+
+function updateProgress(){
+  const answered = document.querySelectorAll('.question.answered').length;
+  document.getElementById('progress-text').textContent = `已作答 ${answered} / 10`;
+  document.getElementById('progress-fill').style.width = (answered*10)+'%';
+}
+
+document.getElementById('submit-btn').addEventListener('click', () => {
+  const questions = document.querySelectorAll('.question');
+  let score = 0;
+
+  questions.forEach(q => {
+    const correct = q.dataset.answer;
+    const selected = q.querySelector('input[type=radio]:checked');
+    const fb = q.querySelector('.feedback');
+    const qNum = q.dataset.q;
+
+    q.querySelectorAll('.opt').forEach(o => {
+      o.classList.add('disabled');
+      const v = o.querySelector('input').value;
+      if (v === correct) o.classList.add('correct-answer');
+    });
+
+    if (selected && selected.value === correct){
+      q.classList.add('correct');
+      fb.className = 'feedback show ok';
+      fb.innerHTML = `<b>✓ 回答正确</b>　${EXPLANATIONS[qNum]}`;
+      score++;
+    } else {
+      q.classList.add('wrong');
+      if (selected) selected.closest('.opt').classList.add('wrong-pick');
+      fb.className = 'feedback show no';
+      fb.innerHTML = `<b>✗ 回答错误</b>　正确答案是 <b>${correct}</b>。${EXPLANATIONS[qNum]}`;
+    }
+  });
+
+  // result card
+  const result = document.getElementById('result');
+  const sn = document.getElementById('score-num');
+  const v = document.getElementById('verdict');
+  const tip = document.getElementById('result-tip');
+  sn.textContent = score;
+  result.classList.add('show');
+  if (score >= 9){
+    v.className = 'verdict great'; v.textContent = '优秀 · 知识点掌握扎实';
+    tip.textContent = '可以继续学习下一节课，或挑战更高难度的应用题。';
+  } else if (score >= 7){
+    v.className = 'verdict ok'; v.textContent = '良好 · 基础已建立';
+    tip.textContent = '建议回头看做错的知识点，对照本节课的 CARD 卡片再过一遍。';
+  } else if (score >= 5){
+    v.className = 'verdict ok'; v.textContent = '及格 · 部分概念需要巩固';
+    tip.textContent = '回到课程页的 5 张关键知识点卡片，逐条对照术语表复习。';
+  } else {
+    v.className = 'verdict poor'; v.textContent = '需要补强 · 建议重学本节课';
+    tip.textContent = '回到 0516 课程页，先看摘要和卡片，再回做本测。';
+  }
+
+  // scroll to result
+  result.scrollIntoView({behavior:'smooth', block:'center'});
+});
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+  document.querySelectorAll('input[type=radio]').forEach(i => i.checked = false);
+  document.querySelectorAll('.question').forEach(q => {
+    q.classList.remove('answered','correct','wrong');
+    q.querySelectorAll('.opt').forEach(o => o.classList.remove('selected','disabled','correct-answer','wrong-pick'));
+    const fb = q.querySelector('.feedback');
+    fb.className = 'feedback'; fb.innerHTML = '';
+  });
+  document.getElementById('result').classList.remove('show');
+  updateProgress();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>
