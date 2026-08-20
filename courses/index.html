@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>前程讲堂 · 课程回顾目录</title>
+<style>
+  :root{
+    --ink:#f6f7ff;
+    --panel:#ffffff;
+    --line:rgba(8,34,203,.14);
+    --cyan:#49ACF7;
+    --blue:#0822CB;
+    --gold:#F1A9F9;
+    --orange:#6328DE;
+    --text:#121747;
+    --muted:#6972a6;
+    --soft:#f0f3ff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--text);
+    font-family:"PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;
+    line-height:1.7;
+    min-width:320px;
+  }
+  body:before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      linear-gradient(rgba(49,230,209,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(49,230,209,.035) 1px,transparent 1px);
+    background-size:40px 40px;
+    mask-image:linear-gradient(to bottom,#000,transparent 88%);
+  }
+  .aurora{
+    position:fixed;inset:-30% -20% auto;height:760px;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(circle at 22% 40%,rgba(49,230,209,.14),transparent 35%),
+      radial-gradient(circle at 70% 20%,rgba(83,168,255,.15),transparent 34%),
+      radial-gradient(circle at 86% 62%,rgba(255,139,94,.08),transparent 28%);
+    filter:blur(20px);
+  }
+  .shell{
+    position:relative;z-index:1;
+    max-width:1080px;margin:auto;
+    padding:32px 28px 80px;
+  }
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;margin-bottom:24px;
+  }
+  .brand{
+    display:inline-flex;align-items:center;gap:0;
+  }
+  .brand img{height:46px;width:auto;display:block}
+  .brand-text{
+    font-size:20px;font-weight:700;color:var(--text);
+    letter-spacing:.08em;white-space:nowrap;line-height:1;
+  }
+  .back-link{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 18px;border-radius:999px;
+    background:#fff;border:1px solid var(--line);
+    color:var(--blue);font-size:13px;font-weight:600;
+    text-decoration:none;transition:all .2s;
+  }
+  .back-link:hover{border-color:var(--cyan);box-shadow:0 4px 14px rgba(49,172,247,.15)}
+  .back-link svg{width:16px;height:16px}
+
+  .hero{
+    background:linear-gradient(118deg,#0822CB 0%,#3a1ed6 48%,#6328DE 78%,#8f50e8 100%);
+    border-radius:28px;padding:44px 40px;
+    box-shadow:0 28px 70px rgba(8,34,203,.24);
+    margin-bottom:36px;position:relative;overflow:hidden;
+  }
+  .hero:before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(105deg,transparent 42%,rgba(241,169,249,.17));
+    pointer-events:none;
+  }
+  .hero:after{
+    content:"";position:absolute;width:420px;height:420px;
+    border:1px solid rgba(255,255,255,.22);border-radius:50%;
+    right:-80px;top:-120px;
+    box-shadow:inset 0 0 80px rgba(255,255,255,.06),0 0 0 55px rgba(73,172,247,.07);
+  }
+  .hero .eyebrow{
+    display:flex;align-items:center;gap:10px;
+    color:#F1A9F9;font:600 11px ui-monospace,SFMono-Regular,monospace;
+    letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;
+  }
+  .hero .eyebrow:before{content:"";width:32px;height:1px;background:#F1A9F9}
+  .hero h1{
+    margin:0 0 10px;font-size:clamp(32px,4.5vw,52px);line-height:1.1;
+    letter-spacing:-.04em;color:#fff;max-width:700px;position:relative;z-index:1;
+  }
+  .hero h1 .gradient{
+    background:linear-gradient(90deg,#49ACF7 0%,#F1A9F9 58%,#FFFFFF 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p{color:#fff;font-size:15px;font-weight:600;letter-spacing:.04em;line-height:1.55;position:relative;z-index:1}
+  .hero .hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;position:relative;z-index:1}
+  .hero .hero-meta span{
+    color:#fff;border-left:2px solid #49ACF7;
+    padding:5px 12px;background:rgba(255,255,255,.1);
+    font:12px ui-monospace,SFMono-Regular,monospace;
+  }
+
+  .section-head{
+    display:flex;justify-content:space-between;align-items:end;
+    gap:16px;margin-bottom:20px;
+  }
+  .section-head h2{margin:0;font-size:24px;letter-spacing:-.02em;color:var(--text)}
+  .section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}
+  .section-code{font:11px ui-monospace,SFMono-Regular,monospace;color:var(--orange)}
+
+  .course-list{
+    display:grid;grid-template-columns:1fr 1fr;gap:18px;
+  }
+  .course-card{
+    background:var(--panel);border-radius:18px;padding:26px 24px;
+    border:1px solid var(--line);
+    box-shadow:0 12px 34px rgba(8,34,203,.06);
+    text-decoration:none;color:inherit;
+    transition:transform .25s ease,box-shadow .25s ease;
+    position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .course-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 50px rgba(8,34,203,.12);
+  }
+  .course-card::before{
+    content:"";position:absolute;inset:0 0 auto 0;height:4px;
+    background:linear-gradient(90deg,var(--cyan),var(--blue));
+  }
+  .course-card .date-row{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:10px;
+  }
+  .course-card .date{
+    font:700 13px ui-monospace,SFMono-Regular,monospace;
+    color:var(--orange);letter-spacing:.08em;
+  }
+  .course-card .status{
+    display:inline-flex;align-items:center;gap:5px;
+    padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;
+    background:rgba(73,172,247,.12);color:var(--blue);
+  }
+  .course-card .status::before{
+    content:"";width:5px;height:5px;border-radius:50%;background:var(--cyan);
+  }
+  .course-card h3{
+    margin:6px 0 8px;font-size:18px;color:var(--text);line-height:1.35;
+  }
+  .course-card .speaker{
+    color:var(--muted);font-size:13px;margin-bottom:12px;
+  }
+  .course-card .speaker b{color:var(--text);font-weight:600}
+  .course-card .desc{
+    font-size:13.5px;color:#3a4470;line-height:1.6;flex:1;
+  }
+  .course-card .tags{
+    display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;
+  }
+  .course-card .tag{
+    font-size:11px;padding:3px 10px;border-radius:99px;
+    background:var(--soft);color:var(--blue);font-weight:600;
+  }
+  .course-card .arrow{
+    margin-top:14px;display:flex;align-items:center;gap:6px;
+    font-size:13px;font-weight:700;color:var(--blue);
+  }
+  .course-card .arrow svg{width:16px;height:16px;transition:transform .2s}
+  .course-card:hover .arrow svg{transform:translateX(4px)}
+
+  /* 即将上线 */
+  .course-card.upcoming{
+    opacity:.6;background:var(--soft);
+  }
+  .course-card.upcoming::before{
+    background:linear-gradient(90deg,var(--muted),var(--line));
+  }
+  .course-card.upcoming .status{
+    background:rgba(105,114,166,.12);color:var(--muted);
+  }
+  .course-card.upcoming .status::before{background:var(--muted)}
+
+  .footer{
+    margin-top:40px;padding:22px 0;color:var(--muted);
+    font-size:12px;display:flex;justify-content:space-between;
+    border-top:1px solid var(--line);
+  }
+
+  @media(max-width:768px){
+    .course-list{grid-template-columns:1fr}
+    .hero{padding:30px 24px}
+  }
+  @media(max-width:640px){
+    .shell{padding:20px 16px 60px}
+    .hero h1{font-size:28px}
+  }
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<div class="shell">
+
+  <div class="topbar">
+    <div class="brand">
+      <img src="../courses/0516/qiancheng-logo.png" alt="前程讲堂" />
+      <span class="brand-text">前程讲堂</span>
+    </div>
+    <a href="../index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      返回主页
+    </a>
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Ningbo Future · Course Library</div>
+    <h1>课程回顾<br><span class="gradient">知识沉淀目录</span></h1>
+    <p>前程讲堂每节课的核心内容回顾 · 关键知识点卡片化 · 供反复学习与查阅</p>
+    <div class="hero-meta">
+      <span>KNOWLEDGE ARCHIVE</span>
+      <span>CONTINUOUSLY UPDATED</span>
+    </div>
+  </section>
+
+  <div class="section-head">
+    <div>
+      <h2>全部课程</h2>
+      <p>按时间倒序排列 · 点击卡片进入课程回顾</p>
+    </div>
+    <div class="section-code">COURSE_INDEX / 01</div>
+  </div>
+
+  <div class="course-list">
+
+    <a href="0820/0820-preview.html" class="course-card">
+      <div class="date-row">
+        <span class="date">0820 / ROUTE</span>
+        <span class="status">待审核</span>
+      </div>
+      <h3>AI 工具使用：从入门到实战</h3>
+      <div class="speaker">讲师 <b>Max</b></div>
+      <p class="desc">AI 和 Agent 的基础认知（模糊→清楚→步骤→成果），Codex 实操教学（Chat/Work/插件/模型选择），鲜花产品目录 400+SKU 全流程案例。专业能力 + AI 能力 = 必杀技。</p>
+      <div class="tags">
+        <span class="tag">AI</span>
+        <span class="tag">Agent</span>
+        <span class="tag">Codex</span>
+        <span class="tag">实操</span>
+      </div>
+      <div class="arrow">
+        查看回顾
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a href="0516/0516-preview.html" class="course-card">
+      <div class="date-row">
+        <span class="date">0516 / ROUTE</span>
+        <span class="status">待审核</span>
+      </div>
+      <h3>外贸三要素与基础认识</h3>
+      <div class="speaker">讲师 <b>周超磊</b></div>
+      <p class="desc">客户—产品—服务三角框架切入外贸本质，询盘→报价→样品→合同→备货→验货→物流→清关→收款全流程，MOQ、Lead Time、AQL、PSI、INCOTERMS 等关键术语串联。</p>
+      <div class="tags">
+        <span class="tag">外贸基础</span>
+        <span class="tag">流程</span>
+        <span class="tag">术语</span>
+      </div>
+      <div class="arrow">
+        查看回顾
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <div class="course-card upcoming">
+      <div class="date-row">
+        <span class="date">更多课程</span>
+        <span class="status">即将上线</span>
+      </div>
+      <h3>更多课程回顾持续更新中</h3>
+      <div class="speaker">前程讲堂 · 内部培训</div>
+      <p class="desc">每节课的核心内容将沉淀为知识卡片，供全员反复学习与查阅。包括但不限于：沙漠掘金、交易与谈判的撮合、认识 AI、AI 的使用场景与实践、传统外贸如何寻找新增量、B2B 客户开发、外贸业务增长破局等。</p>
+      <div class="tags">
+        <span class="tag">敬请期待</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <span>前程讲堂 · KNOWLEDGE ARCHIVE</span>
+    <span>本目录由 AI 自动生成 · 仅供审阅</span>
+  </footer>
+
+</div>
+</body>
+</html>
