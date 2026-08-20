@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>0820 课程回顾 · 《AI 工具使用：从入门到实战》</title>
+<title>课程回顾 · 《AI 工具使用：从入门到实战》</title>
 <style>
   :root{
     --ink:#f6f7ff;
@@ -110,17 +110,30 @@
   }
   .outline{list-style:none;margin:0;padding:0}
   .outline li{
-    padding:12px 16px;margin-bottom:8px;border-radius:10px;
+    padding:0;margin-bottom:8px;border-radius:10px;
     background:var(--soft);border-left:3px solid var(--cyan);
     font-size:14.5px;color:var(--text);
   }
   .outline li:last-child{margin-bottom:0}
+  .outline li a{
+    display:block;padding:12px 16px;border-radius:8px;
+    color:inherit;text-decoration:none;transition:background .2s,color .2s;
+  }
+  .outline li a:hover,.outline li a:focus-visible{
+    background:rgba(73,172,247,.12);color:var(--blue);outline:none;
+  }
+  .outline li a::after{
+    content:"↓";float:right;color:var(--cyan);font-weight:700;
+  }
   .outline li .num{
     display:inline-block;width:22px;height:22px;line-height:22px;
     border-radius:50%;background:var(--blue);color:#fff;
     font-size:12px;font-weight:700;text-align:center;margin-right:10px;
   }
-  .summary{font-size:15.5px;color:#2a3464;text-indent:2em}
+  .summary{font-size:15.5px;color:#2a3464}
+  .summary p{margin:0 0 12px;text-indent:2em}
+  .summary p:last-child{margin-bottom:0}
+  .summary .summary-lead{font-weight:700;color:var(--text);text-indent:0;margin-bottom:10px}
 
   .cards{
     display:grid;grid-template-columns:1fr;
@@ -133,6 +146,7 @@
     transition:transform .2s,box-shadow .2s;
     position:relative;overflow:hidden;
   }
+  .card,.homework-section{scroll-margin-top:24px}
   .card:hover{
     transform:translateY(-3px);
     box-shadow:0 12px 30px rgba(8,34,203,.1);
@@ -366,7 +380,7 @@
 
   <section class="hero">
     <div class="badge">AI · 内训进阶</div>
-    <h1>0820《AI 工具使用：从入门到实战》</h1>
+    <h1>《AI 工具使用：从入门到实战》</h1>
     <div class="meta">
       <span>讲师 <b>Max</b></span>
       <span>日期 <b>2026.08.20</b></span>
@@ -377,22 +391,27 @@
 
   <section class="section">
     <h2>课程摘要</h2>
-    <p class="summary">本课是前程讲堂 AI 主题第二讲。课程分两大板块：第一板块建立 AI 和 Agent 的基础认知——从"不会用电脑的人在今天怎么工作"切入，提出"知道≠使用≠习惯"的三层递进模型，并提炼出核心链路"模糊→清楚→步骤→成果"，区分 AI（大脑）与 Agent（手和脚）的角色分工。第二板块以 Codex 为例进行实操教学，涵盖 Chat 与 Work 的区别、基础操作、站点与自动化、插件系统（Computer User、Google 浏览器、录制模式等）、Work 三种模式、模型选择策略，并特别强调通过高频语音互动、持续反馈和纠正，让 AI 越来越理解你的工作方式。课程还用某品牌的产品册案例展示了从模糊到成果的全流程，最后提出时代核心竞争力公式：专业能力 + AI 能力 = 必杀技。</p>
+    <div class="summary">
+      <p class="summary-lead">课程分两大板块：</p>
+      <p>第一板块建立 AI 和 Agent 的基础认知——从"不会用电脑的人在今天怎么工作"切入，提出"知道≠使用≠习惯"的三层递进模型，并提炼出核心链路"模糊→清楚→步骤→成果"，区分 AI（大脑）与 Agent（手和脚）的角色分工。</p>
+      <p>第二板块以 Codex 为例进行实操教学，涵盖 Chat 与 Work 的区别、基础操作、站点与自动化、插件系统（Computer User、Google 浏览器、录制模式等）、Work 三种模式、模型选择策略，并特别强调通过高频语音互动、持续反馈和纠正，让 AI 越来越理解你的工作方式。</p>
+      <p>课程还用某品牌的产品册案例展示了从模糊到成果的全流程，最后提出时代核心竞争力公式：专业能力 + AI 能力 = 必杀技。</p>
+    </div>
   </section>
 
   <section class="section">
     <h2>课程目录</h2>
     <ol class="outline">
-      <li><span class="num">1</span>不会用电脑的人今天怎么工作？技术演进与主动学习</li>
-      <li><span class="num">2</span>认知模型：知道 ≠ 使用 ≠ 习惯</li>
-      <li><span class="num">3</span>核心链路：模糊 → 清楚 → 步骤 → 成果</li>
-      <li><span class="num">4</span>AI 与 Agent 的概念区别：大脑 vs 手和脚</li>
-      <li><span class="num">5</span>Codex 实操：Chat 与 Work、语音互动与“养 AI”</li>
-      <li><span class="num">6</span>插件系统：Computer User、Google 浏览器、录制模式等</li>
-      <li><span class="num">7</span>Work 三种模式与模型选择策略</li>
-      <li><span class="num">8</span>案例：某品牌的产品册全流程</li>
-      <li><span class="num">9</span>结尾：工具会变，习惯留下；专业能力 + AI 能力 = 必杀技</li>
-      <li><span class="num">10</span>课后小作业：让最常用的 AI 介绍你</li>
+      <li><a href="#card-01"><span class="num">1</span>不会用电脑的人今天怎么工作？技术演进与主动学习</a></li>
+      <li><a href="#card-02"><span class="num">2</span>认知模型：知道 ≠ 使用 ≠ 习惯</a></li>
+      <li><a href="#card-03"><span class="num">3</span>核心链路：模糊 → 清楚 → 步骤 → 成果</a></li>
+      <li><a href="#card-04"><span class="num">4</span>AI 与 Agent 的概念区别：大脑 vs 手和脚</a></li>
+      <li><a href="#card-05"><span class="num">5</span>Codex 实操：Chat 与 Work、语音互动与“养 AI”</a></li>
+      <li><a href="#card-07"><span class="num">6</span>插件系统：Computer User、Google 浏览器、录制模式等</a></li>
+      <li><a href="#card-08"><span class="num">7</span>Work 三种模式与模型选择策略</a></li>
+      <li><a href="#card-10"><span class="num">8</span>案例：某品牌的产品册全流程</a></li>
+      <li><a href="#card-11"><span class="num">9</span>结尾：工具会变，习惯留下；专业能力 + AI 能力 = 必杀技</a></li>
+      <li><a href="#homework"><span class="num">10</span>课后小作业：让最常用的 AI 介绍你</a></li>
     </ol>
   </section>
 
@@ -400,7 +419,7 @@
     <h2>关键知识点卡片</h2>
     <div class="cards">
 
-      <div class="card">
+      <div class="card" id="card-01">
         <div class="num">CARD 01</div>
         <h3>不会用电脑的人今天怎么工作？</h3>
         <p>2026 年，不会用电脑和智能手机的人在社会中会遇到巨大的卡点——扫码、共享单车、地铁、高铁、移动支付都做不了。因为这些基础设施嫁接在互联网之上。</p>
@@ -408,7 +427,7 @@
         <span class="highlight">主动学习 vs 被动被推——是一个个人选择</span>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-02">
         <div class="num">CARD 02</div>
         <h3>知道 ≠ 使用 ≠ 习惯：三层递进模型</h3>
         <div class="duo">
@@ -424,7 +443,7 @@
         <span class="highlight">工具会变，底层的"学习能力"不会变</span>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-03">
         <div class="num">CARD 03</div>
         <h3>核心模型：模糊 → 清楚 → 步骤 → 成果</h3>
         <p>这是整场课程的核心链路，讲师把所有使用 AI 和 Agent 的理念和方法总结成了这一条链路：</p>
@@ -440,7 +459,7 @@
         <span class="highlight">AI 的本质：从非结构化数据中提取结构化</span>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-04">
         <div class="num">CARD 04</div>
         <h3>AI 与 Agent：大脑 vs 手和脚</h3>
         <div class="duo">
@@ -464,7 +483,7 @@
         <p class="small">工具自身也在演进：ChatGPT 网页端纯聊天 → 可上传文件 → <b class="accent">Agent 是最终形态</b></p>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-05">
         <div class="num">CARD 05</div>
         <h3>Codex 界面：Chat 与 Work 的区别</h3>
         <div class="duo">
@@ -515,24 +534,7 @@
         </div>
       </div>
 
-      <div class="homework-section" style="padding:22px;border-radius:16px;border:1px solid rgba(99,40,222,.2)">
-        <span class="homework-kicker">课后小作业 · 5 分钟</span>
-        <h3 style="margin-top:0">让你最常用的 AI 介绍你</h3>
-        <p class="homework-intro">打开你目前最常用的 AI，把下面这段话发给它，看看它对你的了解究竟有多深。</p>
-        <div class="prompt-box">
-          <div class="prompt-label">可以直接使用这段提问</div>
-          <blockquote>“请根据你目前能访问到的记忆和我们过去的对话，介绍一下你对我的了解：我是谁、我主要做什么、我在意什么、我的表达和工作偏好是什么，以及我通常希望你怎样帮助我。请明确区分‘你确定知道的’和‘你推测的’，不知道的不要编。”</blockquote>
-        </div>
-        <div class="homework-check">
-          <div class="check-item"><b>看准确度：</b>它说的有多少符合真实的你？</div>
-          <div class="check-item"><b>看具体度：</b>它是否了解你的工作场景和判断标准？</div>
-          <div class="check-item"><b>看默契度：</b>它是否知道你喜欢怎样的表达和交付格式？</div>
-          <div class="check-item"><b>做一次校准：</b>指出说错、遗漏和需要记住的部分。</div>
-        </div>
-        <p class="privacy-note">隐私提醒：不要为了“养 AI”输入身份证件、账号密码、客户机密或其他不应上传的敏感信息。</p>
-      </div>
-
-      <div class="card">
+      <div class="card" id="card-07">
         <div class="num">CARD 07</div>
         <h3>插件系统：Agent 干活用的工具</h3>
         <p>插件 = Agent 干活用的工具。<b class="accent">插件 vs Skill</b>：插件是已封装好的全面工具；Skill 是针对单一任务的提示词集合，本质是 SOP。遇到一样的活，把 Skill 给 Agent，它按标准执行。</p>
@@ -548,7 +550,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-08">
         <div class="num">CARD 08</div>
         <h3>Work 的三种模式</h3>
         <table>
@@ -574,7 +576,7 @@
         <span class="highlight">推理能力：Sol > Terra > Luna > 5.x ｜ 速度：反过来 ｜ 按任务选模型</span>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-10">
         <div class="num">CARD 10</div>
         <h3>案例：某品牌的产品册全流程</h3>
         <p>讲师接到团队任务：为某品牌制作产品册。面对不熟悉的行业和从未做过的任务，整个过程完整展示了“模糊 → 成果”的链路：</p>
@@ -588,7 +590,7 @@
         <span class="highlight">有了 AI，0 到 1 之后就是复利</span>
       </div>
 
-      <div class="card">
+      <div class="card" id="card-11">
         <div class="num">CARD 11</div>
         <h3>结尾：工具会变，习惯留下</h3>
         <p>工具永远会变——从 PC 到手机到移动互联网到 AI Agent，但底层的<b class="accent">学习能力</b>不会变。讲师自己没有任何代码能力，唯一拿得出手的就是学习能力和对这玩意的兴趣。</p>
@@ -601,6 +603,23 @@
       </div>
 
     </div>
+  </section>
+
+  <section class="section homework-section" id="homework">
+    <span class="homework-kicker">课后小作业 · 5 分钟</span>
+    <h2>让你最常用的 AI 介绍你</h2>
+    <p class="homework-intro">打开你目前最常用的 AI，把下面这段话发给它，看看它对你的了解究竟有多深。</p>
+    <div class="prompt-box">
+      <div class="prompt-label">可以直接使用这段提问</div>
+      <blockquote>“请根据你目前能访问到的记忆和我们过去的对话，介绍一下你对我的了解：我是谁、我主要做什么、我在意什么、我的表达和工作偏好是什么，以及我通常希望你怎样帮助我。请明确区分‘你确定知道的’和‘你推测的’，不知道的不要编。”</blockquote>
+    </div>
+    <div class="homework-check">
+      <div class="check-item"><b>看准确度：</b>它说的有多少符合真实的你？</div>
+      <div class="check-item"><b>看具体度：</b>它是否了解你的工作场景和判断标准？</div>
+      <div class="check-item"><b>看默契度：</b>它是否知道你喜欢怎样的表达和交付格式？</div>
+      <div class="check-item"><b>做一次校准：</b>指出说错、遗漏和需要记住的部分。</div>
+    </div>
+    <p class="privacy-note">隐私提醒：不要为了“养 AI”输入身份证件、账号密码、客户机密或其他不应上传的敏感信息。</p>
   </section>
 
   <section class="section">
