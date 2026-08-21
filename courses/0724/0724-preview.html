@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>《B2B 客户开发：从信任到成交》· 0724 课程回顾</title>
+<style>
+  :root{--bg:#f6f7ff;--panel:#fff;--line:rgba(8,34,203,.14);--cyan:#49ACF7;--blue:#0822CB;--pink:#F1A9F9;--purple:#6328DE;--text:#121747;--muted:#6972a6;--soft:#f0f3ff}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;min-width:320px;background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;line-height:1.7}
+  body:before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(8,34,203,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(8,34,203,.04) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}
+  .aurora{position:fixed;inset:-30% -20% auto;height:760px;z-index:0;pointer-events:none;background:radial-gradient(circle at 22% 40%,rgba(73,172,247,.18),transparent 35%),radial-gradient(circle at 70% 20%,rgba(99,40,222,.16),transparent 34%),radial-gradient(circle at 86% 62%,rgba(241,169,249,.12),transparent 28%);filter:blur(20px)}
+  .shell{position:relative;z-index:1;max-width:1080px;margin:auto;padding:32px 28px 80px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}.brand{display:inline-flex;align-items:center}.brand img{height:46px;width:auto;display:block}.brand-text{font-size:20px;font-weight:700;letter-spacing:.08em;white-space:nowrap;line-height:1}
+  .back-link{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blue);font-size:13px;font-weight:600;text-decoration:none;transition:.2s}.back-link:hover{border-color:var(--cyan);box-shadow:0 4px 14px rgba(73,172,247,.2)}
+  .hero{position:relative;overflow:hidden;background:linear-gradient(118deg,#0822CB 0%,#3a1ed6 48%,#6328DE 78%,#8f50e8 100%);border-radius:26px;padding:38px 34px;color:#fff;box-shadow:0 28px 70px rgba(8,34,203,.22);margin-bottom:24px}.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-70px;top:-120px;box-shadow:0 0 0 55px rgba(73,172,247,.06),0 0 0 110px rgba(241,169,249,.05)}.hero>*{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.14);font-size:12px;font-weight:700;margin-bottom:14px;border:1px solid rgba(255,255,255,.24)}.badge:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 9px var(--pink)}
+  .hero h1{margin:0 0 9px;font-size:clamp(30px,4vw,46px);line-height:1.2}.hero .slogan{margin:0 0 15px;color:#fff;font-size:15px;font-weight:600}.meta{display:flex;flex-wrap:wrap;gap:10px 20px;color:rgba(255,255,255,.82);font-size:13px}.meta b{color:#fff}
+  .section{background:var(--panel);border-radius:20px;padding:28px 30px;border:1px solid var(--line);margin-bottom:22px;box-shadow:0 12px 34px rgba(8,34,203,.04)}.section h2{margin:0 0 18px;font-size:20px;display:flex;align-items:center;gap:10px}.section h2:before{content:"";display:block;width:4px;height:18px;background:linear-gradient(180deg,var(--cyan),var(--blue));border-radius:2px}
+  .summary{font-size:15px;color:#2a3464}.summary p{margin:0 0 10px}.summary p:last-child{margin-bottom:0}.summary strong{color:var(--blue)}
+  .overview{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:18px}.overview-item{padding:15px;border-radius:12px;background:var(--soft);border-top:3px solid var(--cyan)}.overview-item b{display:block;color:var(--blue);font-size:14px}.overview-item span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+  .outline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}.outline li{margin:0}.outline a{display:flex;align-items:center;min-height:52px;padding:11px 14px;border-radius:11px;background:var(--soft);border-left:3px solid var(--cyan);color:var(--text);font-size:14px;text-decoration:none;transition:.2s}.outline a:hover{transform:translateX(3px);background:#e8ecff}.outline .num{flex:0 0 24px;height:24px;line-height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:700;text-align:center;margin-right:10px}
+  .cards{display:grid;gap:18px}.card{scroll-margin-top:24px;position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--soft) 100%);border-radius:16px;padding:22px;border:1px solid var(--line);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,34,203,.1)}.card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple))}.card-no{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.2em}.card h3{margin:6px 0 12px;font-size:17px;line-height:1.4}.card p{margin:0 0 10px;font-size:14px;color:#3a4470}.card p:last-child{margin-bottom:0}.card ul{margin:7px 0 4px;padding-left:21px;font-size:14px;color:#3a4470}.card li{margin-bottom:5px}.highlight{display:block;margin:12px 0;padding:11px 14px;background:rgba(73,172,247,.12);border-left:3px solid var(--cyan);border-radius:7px;color:var(--blue);font-size:14px;font-weight:600}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{padding:14px 15px;border-radius:12px;background:#fff;border:1px solid var(--line)}.mini b{display:block;color:var(--blue);font-size:14px;margin-bottom:4px}.mini p{font-size:13px;margin:0}.case{margin-top:12px;padding:13px 15px;border-radius:11px;background:#fff;border:1px dashed rgba(99,40,222,.3)}.case b{color:var(--purple);font-size:13px}.case p{margin:3px 0 0;font-size:13px}
+  .check-section{scroll-margin-top:24px;background:linear-gradient(135deg,#eef4ff,#fbf1ff);border-color:rgba(99,40,222,.2)}.check-kicker{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--purple);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;margin-bottom:10px}.check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.check{padding:14px;border-radius:11px;background:#fff;border:1px solid var(--line);font-size:13px;color:#3a4470}.check:before{content:"□";display:block;color:var(--purple);font-size:20px;font-weight:700}.check b{display:block;color:var(--blue);margin:3px 0}
+  .takeaway{text-align:center;background:linear-gradient(135deg,#0822CB,#6328DE);color:#fff;border:0}.takeaway h2{justify-content:center}.takeaway h2:before{display:none}.takeaway strong{display:block;max-width:780px;margin:auto;font-size:clamp(22px,3vw,32px);line-height:1.5}.takeaway p{margin:10px 0 0;color:rgba(255,255,255,.75);font-size:13px}
+  .related{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.related a{padding:16px;border-radius:13px;background:var(--soft);border:1px solid var(--line);color:var(--text);text-decoration:none;transition:.2s}.related a:hover{transform:translateY(-2px);border-color:var(--cyan)}.related small{display:block;color:var(--purple);font-weight:700}.related b{display:block;margin-top:3px}
+  .cta{padding:0;border:none;background:none}.cta-link{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 26px;border-radius:18px;background:linear-gradient(135deg,#0822CB,#6328DE);color:#fff;text-decoration:none;box-shadow:0 16px 40px rgba(8,34,203,.24);transition:.2s}.cta-link:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(8,34,203,.34)}.cta-title{font-size:18px;font-weight:700}.cta-subtitle{font-size:13px;opacity:.82}.cta-arrow{font-size:24px;font-weight:700}
+  footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.05em}
+  @media(max-width:760px){.outline{grid-template-columns:1fr}.check-grid,.related{grid-template-columns:1fr}.hero{padding:30px 24px}}
+  @media(max-width:560px){.shell{padding:20px 15px 60px}.brand-text{display:none}.hero{padding:25px 21px}.hero h1{font-size:27px}.section{padding:21px 18px}.overview,.two-col{grid-template-columns:1fr}.back-link{padding:7px 13px}}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<main class="shell">
+  <div class="topbar">
+    <div class="brand"><img src="../0820/qiancheng-logo.png" alt="前程讲堂" /><span class="brand-text">前程讲堂</span></div>
+    <a href="../index.html" class="back-link">← 课程目录</a>
+  </div>
+
+  <section class="hero">
+    <div class="badge">B2B · 客户开发</div>
+    <h1>《B2B 客户开发：从信任到成交》</h1>
+    <p class="slogan">信任是最贵的获客成本，也是最深的护城河</p>
+    <div class="meta"><span>讲师 <b>童超宇 Bill</b></span><span>日期 <b>2026.07.24</b></span><span>状态 <b>已发布</b></span></div>
+  </section>
+
+  <section class="section">
+    <h2>课程摘要</h2>
+    <div class="summary">
+      <p>在信息和产品高度同质化的时代，客户不会因为一句“价格好、质量高”就选择你。越是重要的客户，越会综合考量专业度、可靠性、响应效率、风险承担和长期服务能力。</p>
+      <p>课程以多个真实客户开发经历为背景，总结出建立信任的六个动作：<strong>理解并引导客户、用证据说话、兑现承诺、直面并解决问题、比客户多想一步、帮助公司背后的具体的人</strong>。</p>
+      <p>这些动作最终会形成两种结果：当新机会出现时，客户愿意先与你共同尝试；当低价竞争出现时，客户愿意先与你讨论差异，而不是立即更换供应商。</p>
+    </div>
+    <div class="overview">
+      <div class="overview-item"><b>PART 01 · 建立信任</b><span>六条实战心得，从了解客户到帮助客户解决问题</span></div>
+      <div class="overview-item"><b>PART 02 · 信任的价值</b><span>把一次成交转化为复购、新项目与长期绑定</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>课程目录</h2>
+    <ol class="outline">
+      <li><a href="#card-01"><span class="num">1</span>理解客户，更要帮助客户思考</a></li>
+      <li><a href="#card-02"><span class="num">2</span>用证据说话，不做工厂传话筒</a></li>
+      <li><a href="#card-03"><span class="num">3</span>承诺的事情，一定做到</a></li>
+      <li><a href="#card-04"><span class="num">4</span>把危机变成能力展示</a></li>
+      <li><a href="#card-05"><span class="num">5</span>比客户多想一步</a></li>
+      <li><a href="#card-06"><span class="num">6</span>公司背后，是具体的人</a></li>
+      <li><a href="#card-07"><span class="num">7</span>贸易服务的核心价值</a></li>
+      <li><a href="#card-08"><span class="num">8</span>信任如何形成长期绑定</a></li>
+      <li><a href="#check"><span class="num">9</span>信任账户自查表</a></li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>关键知识点卡片</h2>
+    <div class="cards">
+      <article class="card" id="card-01"><div class="card-no">CARD 01</div><h3>理解客户，更要敢于帮助客户思考</h3><p>发完样册后不断催选品，只会让客户觉得你很“pushy”。客户启动新项目时，往往自己也没有完整答案。业务员的价值，是结合客户现有渠道和供应链，主动提出更具体、更有启发性的方向。</p><span class="highlight">可以用 AI 辅助研究客户网站和产品结构，形成定制提案；也可以把选品资料做成更容易理解的产品视频。</span></article>
+
+      <article class="card" id="card-02"><div class="card-no">CARD 02</div><h3>用证据说话，不做工厂的传话筒</h3><p>“Good Price”“High Quality”“Innovative Design”都是无法验证的泛化表达。价格优势要用数据证明，质量优势要用检测或过程证明，设计优势要用真实案例证明。</p><div class="case"><b>关键动作</b><p>对工厂给出的解释保持独立判断，用可靠资源交叉验证，再把结论传递给客户。</p></div></article>
+
+      <article class="card" id="card-03"><div class="card-no">CARD 03</div><h3>承诺的事情，一定做到</h3><p>承诺不是话术，而是信任的底线。答应客户的交期、资料、样品和反馈节点，都要纳入自己的跟进系统，并对异常提前预警。</p><span class="highlight">在承诺前评估可行性；一旦承诺，就主动协调资源完成，不让客户反复催促。</span></article>
+
+      <article class="card" id="card-04"><div class="card-no">CARD 04</div><h3>遇到问题不遮掩，把危机变成能力展示</h3><p>完美的业务员和完美的公司都不存在。对客户来说，能够第一时间说明情况、调动资源、高效兜底的伙伴，比单纯价格便宜的供应商更有价值。</p><div class="case"><b>危机处理顺序</b><p>确认事实 → 同步影响 → 提供方案 → 明确负责人和时间点 → 跟进到真正闭环。</p></div></article>
+
+      <article class="card" id="card-05"><div class="card-no">CARD 05</div><h3>比客户多想一步：规避风险，也寻找机会</h3><p>法律责任划分清楚，并不代表商业风险不存在。帮助客户提前发现认证、库存、渠道或交付风险，也是在保护自己的长期合作；主动发现新机会，则可能共同创造新的订单。</p><span class="highlight">客户的成功最终会转化为你的成功。不要只盯眼前订单，也要看客户项目能否持续。</span></article>
+
+      <article class="card" id="card-06"><div class="card-no">CARD 06</div><h3>公司背后，是一个个活生生的人</h3><p>做决定的是人，推进项目的也是人。在力所能及的范围内真正解决对方的问题，比空谈“我会支持你”更有力量。</p><div class="two-col"><div class="mini"><b>不是酒肉朋友</b><p>不是靠应酬和空口承诺换关系。</p></div><div class="mini"><b>而是落地承诺</b><p>让对方知道，有事时你真的会行动。</p></div></div></article>
+
+      <article class="card" id="card-07"><div class="card-no">CARD 07</div><h3>贸易服务的价值：专业推进与风险转移</h3><p>贸易服务不只是把商品从工厂卖给客户，更重要的是整合信息、推动项目、管理质量与交付，并替客户降低与陌生供应链合作的风险。</p><div class="two-col"><div class="mini"><b>Merchandise · 服务</b><p>选品、沟通、协调、验证和项目管理。</p></div><div class="mini"><b>Risk Transfer · 风险转移</b><p>用组织能力为客户提供更可靠的履约保障。</p></div></div></article>
+
+      <article class="card" id="card-08"><div class="card-no">CARD 08</div><h3>信任形成长期绑定，而不是一次成交</h3><p>当你在客户心中成为专业、靠谱、高效的代表，合作关系会出现两个重要变化：</p><ul><li>客户发现新产品、想尝试新概念时，第一时间愿意与你一起探索，而不是马上寻找新供应商。</li><li>遭遇低价竞争时，客户愿意和你讨论价格差异背后的服务与风险，而不是因为几个点的利益立即离开。</li></ul><span class="highlight">真正的护城河不是“永远最低价”，而是客户愿意把下一次机会继续交给你。</span></article>
+    </div>
+  </section>
+
+  <section class="section check-section" id="check">
+    <span class="check-kicker">信任账户 · 自查表</span>
+    <h2>最近一次客户沟通，你存入了哪一笔信任？</h2>
+    <p>选择一个正在推进的客户，对照下面六项检查下一步行动。这不是统一作业，而是一张随时可用的工作自查表。</p>
+    <div class="check-grid">
+      <div class="check"><b>理解客户</b>我是否研究过客户的渠道、产品与现实难点？</div>
+      <div class="check"><b>证据表达</b>价格、质量和设计优势是否有数据或案例支持？</div>
+      <div class="check"><b>兑现承诺</b>是否有节点需要我主动同步，而不是等客户催？</div>
+      <div class="check"><b>解决问题</b>影响、方案、负责人和时间点是否已经讲清？</div>
+      <div class="check"><b>多想一步</b>能否替客户提前发现一个风险或提出一个机会？</div>
+      <div class="check"><b>帮助具体的人</b>这次合作是否让客户对接人的工作更轻松？</div>
+    </div>
+  </section>
+
+  <section class="section takeaway">
+    <h2>一句话带走</h2>
+    <strong>信任，是攒出来的。每一次承诺兑现、每一次问题解决，最终都会变成成交。</strong>
+    <p>认真、创新、长期坚持做正确的事。</p>
+  </section>
+
+  <section class="section">
+    <h2>关联课程</h2>
+    <div class="related">
+      <a href="../0608/0608-preview.html"><small>0608 · 谈判</small><b>《交易与谈判的撮合》</b></a>
+      <a href="../0516/0516-preview.html"><small>0516 · 外贸基础</small><b>《外贸三要素与基础认识》</b></a>
+      <a href="../0709/0709-preview.html"><small>0709 · AI 实践</small><b>《AI 的使用场景与实践》</b></a>
+    </div>
+  </section>
+
+  <section class="section cta"><a href="../index.html" class="cta-link"><span><span class="cta-title">返回课程目录</span><span class="cta-subtitle">继续查看前程讲堂的其他课程回顾</span></span><span class="cta-arrow">→</span></a></section>
+  <footer>本回顾根据课程 PPT 整理，客户与业绩信息已脱敏 · 前程讲堂课程知识库</footer>
+</main>
+</body>
+</html>
