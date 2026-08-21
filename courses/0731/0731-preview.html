@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>《从 0 到 $4M：外贸业务增长破局课》· 0731 课程回顾</title>
+<style>
+  :root{--bg:#f6f7ff;--panel:#fff;--line:rgba(8,34,203,.14);--cyan:#49ACF7;--blue:#0822CB;--pink:#F1A9F9;--purple:#6328DE;--text:#121747;--muted:#6972a6;--soft:#f0f3ff}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;min-width:320px;background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;line-height:1.7}
+  body:before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(8,34,203,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(8,34,203,.04) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}
+  .aurora{position:fixed;inset:-30% -20% auto;height:760px;z-index:0;pointer-events:none;background:radial-gradient(circle at 22% 40%,rgba(73,172,247,.18),transparent 35%),radial-gradient(circle at 70% 20%,rgba(99,40,222,.16),transparent 34%),radial-gradient(circle at 86% 62%,rgba(241,169,249,.12),transparent 28%);filter:blur(20px)}
+  .shell{position:relative;z-index:1;max-width:1080px;margin:auto;padding:32px 28px 80px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}.brand{display:inline-flex;align-items:center}.brand img{height:46px;width:auto;display:block}.brand-text{font-size:20px;font-weight:700;letter-spacing:.08em;white-space:nowrap;line-height:1}
+  .back-link{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blue);font-size:13px;font-weight:600;text-decoration:none;transition:.2s}.back-link:hover{border-color:var(--cyan);box-shadow:0 4px 14px rgba(73,172,247,.2)}
+  .hero{position:relative;overflow:hidden;background:linear-gradient(118deg,#0822CB 0%,#3a1ed6 48%,#6328DE 78%,#8f50e8 100%);border-radius:26px;padding:38px 34px;color:#fff;box-shadow:0 28px 70px rgba(8,34,203,.22);margin-bottom:24px}.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-70px;top:-120px;box-shadow:0 0 0 55px rgba(73,172,247,.06),0 0 0 110px rgba(241,169,249,.05)}.hero>*{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.14);font-size:12px;font-weight:700;margin-bottom:14px;border:1px solid rgba(255,255,255,.24)}.badge:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 9px var(--pink)}
+  .hero h1{margin:0 0 9px;font-size:clamp(30px,4vw,46px);line-height:1.2}.hero .slogan{margin:0 0 15px;color:#fff;font-size:15px;font-weight:600}.meta{display:flex;flex-wrap:wrap;gap:10px 20px;color:rgba(255,255,255,.82);font-size:13px}.meta b{color:#fff}
+  .section{background:var(--panel);border-radius:20px;padding:28px 30px;border:1px solid var(--line);margin-bottom:22px;box-shadow:0 12px 34px rgba(8,34,203,.04)}.section h2{margin:0 0 18px;font-size:20px;display:flex;align-items:center;gap:10px}.section h2:before{content:"";display:block;width:4px;height:18px;background:linear-gradient(180deg,var(--cyan),var(--blue));border-radius:2px}
+  .summary{font-size:15px;color:#2a3464}.summary p{margin:0 0 10px}.summary p:last-child{margin-bottom:0}.summary strong{color:var(--blue)}
+  .growth-chain{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:18px}.growth-step{position:relative;padding:14px 12px;border-radius:12px;background:var(--soft);border-top:3px solid var(--cyan);text-align:center}.growth-step b{display:block;color:var(--blue);font-size:13px}.growth-step span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+  .outline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}.outline li{margin:0}.outline a{display:flex;align-items:center;min-height:52px;padding:11px 14px;border-radius:11px;background:var(--soft);border-left:3px solid var(--cyan);color:var(--text);font-size:14px;text-decoration:none;transition:.2s}.outline a:hover{transform:translateX(3px);background:#e8ecff}.outline .num{flex:0 0 24px;height:24px;line-height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:700;text-align:center;margin-right:10px}
+  .cards{display:grid;gap:18px}.card{scroll-margin-top:24px;position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--soft) 100%);border-radius:16px;padding:22px;border:1px solid var(--line);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,34,203,.1)}.card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple))}.card-no{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.2em}.card h3{margin:6px 0 12px;font-size:17px;line-height:1.4}.card p{margin:0 0 10px;font-size:14px;color:#3a4470}.card p:last-child{margin-bottom:0}.card ul{margin:7px 0 4px;padding-left:21px;font-size:14px;color:#3a4470}.card li{margin-bottom:5px}.highlight{display:block;margin:12px 0;padding:11px 14px;background:rgba(73,172,247,.12);border-left:3px solid var(--cyan);border-radius:7px;color:var(--blue);font-size:14px;font-weight:600}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{padding:14px 15px;border-radius:12px;background:#fff;border:1px solid var(--line)}.mini b{display:block;color:var(--blue);font-size:14px;margin-bottom:4px}.mini p{font-size:13px;margin:0}.formula{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:13px 0}.formula span{padding:7px 11px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--blue);font-size:13px;font-weight:700}.formula i{font-style:normal;color:var(--purple);font-weight:700}
+  .value-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:13px 0}.value-node{padding:12px;border-radius:11px;background:#fff;border:1px solid var(--line)}.value-node b{display:block;color:var(--blue);font-size:12px}.value-node span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+  .review-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:14px}.review-box{padding:18px;border-radius:14px;background:var(--soft);border:1px solid var(--line)}.review-box h3{margin:0 0 9px;font-size:16px;color:var(--blue)}.review-box ul{margin:0;padding-left:20px;font-size:13px;color:#3a4470}.review-box li{margin-bottom:4px}
+  .action-section{scroll-margin-top:24px;background:linear-gradient(135deg,#eef4ff,#fbf1ff);border-color:rgba(99,40,222,.2)}.action-kicker{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--purple);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;margin-bottom:10px}.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.action{padding:16px;border-radius:12px;background:#fff;border:1px solid var(--line);font-size:13px;color:#3a4470}.action b{display:block;color:var(--blue);margin-bottom:5px}.action em{display:inline-block;margin-bottom:8px;padding:2px 8px;border-radius:999px;background:rgba(99,40,222,.1);color:var(--purple);font-size:10px;font-style:normal;font-weight:700}
+  .takeaway{text-align:center;background:linear-gradient(135deg,#0822CB,#6328DE);color:#fff;border:0}.takeaway h2{justify-content:center}.takeaway h2:before{display:none}.takeaway strong{display:block;max-width:810px;margin:auto;font-size:clamp(22px,3vw,31px);line-height:1.5}.takeaway p{margin:10px 0 0;color:rgba(255,255,255,.75);font-size:13px}
+  .related{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.related a{padding:16px;border-radius:13px;background:var(--soft);border:1px solid var(--line);color:var(--text);text-decoration:none;transition:.2s}.related a:hover{transform:translateY(-2px);border-color:var(--cyan)}.related small{display:block;color:var(--purple);font-weight:700}.related b{display:block;margin-top:3px}
+  .cta{padding:0;border:none;background:none}.cta-link{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 26px;border-radius:18px;background:linear-gradient(135deg,#0822CB,#6328DE);color:#fff;text-decoration:none;box-shadow:0 16px 40px rgba(8,34,203,.24);transition:.2s}.cta-link:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(8,34,203,.34)}.cta-title{font-size:18px;font-weight:700}.cta-subtitle{font-size:13px;opacity:.82}.cta-arrow{font-size:24px;font-weight:700}
+  footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.05em}
+  @media(max-width:760px){.growth-chain{grid-template-columns:1fr 1fr}.outline{grid-template-columns:1fr}.value-chain{grid-template-columns:1fr 1fr}.related{grid-template-columns:1fr}.hero{padding:30px 24px}}
+  @media(max-width:560px){.shell{padding:20px 15px 60px}.brand-text{display:none}.hero{padding:25px 21px}.hero h1{font-size:27px}.section{padding:21px 18px}.compare,.review-grid,.action-grid,.growth-chain,.value-chain{grid-template-columns:1fr}.back-link{padding:7px 13px}}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<main class="shell">
+  <div class="topbar">
+    <div class="brand"><img src="../0820/qiancheng-logo.png" alt="前程讲堂" /><span class="brand-text">前程讲堂</span></div>
+    <a href="../index.html" class="back-link">← 课程目录</a>
+  </div>
+
+  <section class="hero">
+    <div class="badge">外贸 · 业务增长</div>
+    <h1>《从 0 到 $4M：外贸业务增长破局课》</h1>
+    <p class="slogan">从“业务跟单”到“靠谱外贸人”，从“会做”走向“做成”</p>
+    <div class="meta"><span>讲师 <b>崔杉 Angela</b></span><span>日期 <b>2026.07.31</b></span><span>状态 <b>已发布</b></span></div>
+  </section>
+
+  <section class="section">
+    <h2>课程摘要</h2>
+    <div class="summary">
+      <p>这节课不是一组孤立的销售技巧，而是一次关于工作思维和职业态度的重塑。课程从讲师跨职能、跨区域的真实经历出发，说明许多看似绕路的任务，最终都会沉淀成理解客户、整合资源和推动业务的能力。</p>
+      <p>课程提炼出一条首年增长链路：<strong>认知 → 定位 → 获客 → 推进 → 复制</strong>。要让这条链路真正运行，需要三大核心思维——结果导向、PDCA 闭环、系统性思维，以及四项职业态度——勇于试错、抗压坚韧、主动学习、靠谱负责。</p>
+      <p>最终目标不是把任务“做过”，而是明确结果、持续推进、及时反馈、复盘沉淀，并从满足客户的单点要求升级为帮助客户赢得市场。</p>
+    </div>
+    <div class="growth-chain">
+      <div class="growth-step"><b>01 认知</b><span>为结果负责</span></div><div class="growth-step"><b>02 定位</b><span>找对客户</span></div><div class="growth-step"><b>03 获客</b><span>建立连接</span></div><div class="growth-step"><b>04 推进</b><span>推动决策</span></div><div class="growth-step"><b>05 复制</b><span>形成系统</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>课程目录</h2>
+    <ol class="outline">
+      <li><a href="#card-01"><span class="num">1</span>看似绕路的经历，后来都变成能力</a></li>
+      <li><a href="#card-02"><span class="num">2</span>思维一：结果导向</a></li>
+      <li><a href="#card-03"><span class="num">3</span>思维二：PDCA 闭环</a></li>
+      <li><a href="#card-04"><span class="num">4</span>思维三：系统性思维</a></li>
+      <li><a href="#card-05"><span class="num">5</span>态度一：勇于 Say Yes</a></li>
+      <li><a href="#card-06"><span class="num">6</span>态度二：抗压坚韧</a></li>
+      <li><a href="#card-07"><span class="num">7</span>态度三：主动学习</a></li>
+      <li><a href="#card-08"><span class="num">8</span>态度四：靠谱负责</a></li>
+      <li><a href="#review"><span class="num">9</span>三大思维与四项态度复盘</a></li>
+      <li><a href="#actions"><span class="num">10</span>落地小任务：即时执行</a></li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>关键知识点卡片</h2>
+    <div class="cards">
+      <article class="card" id="card-01"><div class="card-no">CARD 01</div><h3>看似绕路的经历，后来都变成业务能力</h3><p>组织活动、产品开发、海外团队搭建、仓库与样品间建设、客户拜访和项目处理，看起来分散，实际上都在训练同一件事：理解全局、协调资源、解决问题并为结果负责。</p><span class="highlight">愿力 → 业力 → 能力。0经验不是终点，持续努力和靠谱执行也能赢。</span></article>
+
+      <article class="card" id="card-02"><div class="card-no">CARD 02</div><h3>结果导向：工作量不等于有效产出</h3><p>很多人每天很忙，却不知道自己是否创造了价值。结果思维要求从“我做过了”“客户没回复”“价格没优势”，转向“目标是否达成”“为什么没回复”“下一步计划是什么”。</p><div class="compare"><div class="mini"><b>任务视角</b><p>报价单做完了，邮件发出去了，流程已经走过。</p></div><div class="mini"><b>结果视角</b><p>客户是否理解价值？反馈卡在哪里？下一步如何推动？</p></div></div><span class="highlight">做报价单，不只问 HOW，还要先问 WHY。</span></article>
+
+      <article class="card" id="card-03"><div class="card-no">CARD 03</div><h3>PDCA 闭环：事事有回应，件件有着落</h3><p>外贸链条长，一个节点遗漏可能影响后续所有环节。闭环不是“做完”，而是从接收任务到反馈、留档和复盘的完整循环。</p><div class="formula"><span>接收任务</span><i>→</i><span>执行核对</span><i>→</i><span>结果反馈</span><i>→</i><span>存档复盘</span></div><p>报价回执、样品记录、订单节点汇报和问题复盘，都是高频闭环场景。</p></article>
+
+      <article class="card" id="card-04"><div class="card-no">CARD 04</div><h3>系统性思维：从卖产品到帮助客户赢市场</h3><p>不要只满足客户表面的要求，而要理解客户为什么提出，并组织整条价值链给出系统性解决方案。</p><div class="value-chain"><div class="value-node"><b>终端市场</b><span>渠道、消费习惯、竞争</span></div><div class="value-node"><b>客户端</b><span>盈利模式、利润、风险</span></div><div class="value-node"><b>产品开发</b><span>选品、定价、设计、陈列</span></div><div class="value-node"><b>供应链实现</b><span>工厂、MOQ、品质、交期</span></div><div class="value-node"><b>交付上市</b><span>物流、仓储、售后</span></div><div class="value-node"><b>市场反馈</b><span>销量、复购、迭代、复制</span></div></div><span class="highlight">真正的 Win-Win：客户卖得动、有利润、可持续；我们获得稳定、长期、可复制的合作。</span></article>
+
+      <article class="card" id="card-05"><div class="card-no">CARD 05</div><h3>勇于 Say Yes：借假修真，先出发再优化</h3><p>面对陌生任务，不要因为“没做过”就拒绝。先判断目标和边界，勇敢接住挑战，在执行中学习，在复盘中升级能力。</p><div class="compare"><div class="mini"><b>说到做到</b><p>接下任务后主动推进、协调资源、交付结果。</p></div><div class="mini"><b>先完成再完美</b><p>先做出可用版本，再通过反馈持续优化。</p></div></div></article>
+
+      <article class="card" id="card-06"><div class="card-no">CARD 06</div><h3>抗压坚韧：拥抱外贸中的不确定性</h3><p>询盘石沉大海、客户砍价、订单取消、客诉纠纷，都是外贸工作的常态。抗压不是没有情绪，而是不被一次结果定义，能够复盘问题并继续行动。</p><span class="highlight">不玻璃心、不内耗；复盘问题、持续优化。外贸是长跑，不是冲刺。</span></article>
+
+      <article class="card" id="card-07"><div class="card-no">CARD 07</div><h3>主动学习：不懂就问，更要主动积累</h3><p>产品知识、贸易知识、客户调研、AI 工具和合规政策，都需要持续学习。真正的成长不是“遇到再查”，而是把每天的问题积累成自己的工作资产。</p><ul><li>不懂就问，避免带着错误假设继续执行。</li><li>主动记录，建立个人问题库和话术库。</li><li>把经验整理进 SOP 和知识库，让下一次更快更稳。</li></ul></article>
+
+      <article class="card" id="card-08"><div class="card-no">CARD 08</div><h3>靠谱负责：长期价值来自复购与口碑</h3><p>不夸大、不隐瞒，出现错误不甩锅，主动说明影响并补救。客户最终看到的交付结果，就是你的职业信用。</p><div class="compare"><div class="mini"><b>买家秀 = 卖家秀</b><p>承诺与实际交付保持一致，不靠包装掩盖问题。</p></div><div class="mini"><b>长期价值</b><p>靠谱带来复购、口碑和更高质量的合作机会。</p></div></div></article>
+    </div>
+  </section>
+
+  <section class="section" id="review">
+    <h2>核心复盘</h2>
+    <div class="review-grid">
+      <div class="review-box"><h3>三大工作思维</h3><ul><li>结果思维：从“做过”到“达成”</li><li>闭环思维：从执行到反馈、留档、复盘</li><li>系统性思维：从卖产品到帮助客户赢市场</li></ul></div>
+      <div class="review-box"><h3>四项职业态度</h3><ul><li>勇于试错：先出发，再优化</li><li>抗压坚韧：接受不确定性，持续行动</li><li>主动学习：把问题沉淀为知识资产</li><li>靠谱负责：不夸大、不隐瞒，出错主动补救</li></ul></div>
+    </div>
+  </section>
+
+  <section class="section action-section" id="actions">
+    <span class="action-kicker">落地小任务 · 即时执行</span>
+    <h2>把课程变成下一步行动</h2>
+    <div class="action-grid">
+      <div class="action"><em>ACTION 01</em><b>完成一个客户项目的 PDCA 闭环</b>梳理现有客户和资源，围绕一个真实需求立项，明确目标、执行动作、反馈节点和复盘记录。</div>
+      <div class="action"><em>ACTION 02</em><b>建立个人工作错题本</b>记录每日细节问题、错误原因和改进方式，持续优化 SOP，逐步形成自己的知识库。</div>
+    </div>
+  </section>
+
+  <section class="section takeaway">
+    <h2>一句话带走</h2>
+    <strong>外贸从来不是一场短跑，而是一场关于专业、信任与长期主义的修炼。</strong>
+    <p>保持好奇，持续行动，及时复盘，努力成为懂市场、懂客户、能解决问题的人。</p>
+  </section>
+
+  <section class="section"><h2>关联课程</h2><div class="related"><a href="../0724/0724-preview.html"><small>0724 · 客户开发</small><b>《B2B 客户开发：从信任到成交》</b></a><a href="../0608/0608-preview.html"><small>0608 · 谈判</small><b>《交易与谈判的撮合》</b></a><a href="../0709/0709-preview.html"><small>0709 · AI 实践</small><b>《AI 的使用场景与实践》</b></a></div></section>
+
+  <section class="section cta"><a href="../index.html" class="cta-link"><span><span class="cta-title">返回课程目录</span><span class="cta-subtitle">继续查看前程讲堂的其他课程回顾</span></span><span class="cta-arrow">→</span></a></section>
+  <footer>本回顾根据课程 PPT 整理，个人履历与业务细节已适度简化 · 前程讲堂课程知识库</footer>
+</main>
+</body>
+</html>
