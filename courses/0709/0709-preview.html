@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>《AI 的使用场景与实践》· 0709 课程回顾</title>
+<style>
+  :root{
+    --bg:#f6f7ff;--panel:#fff;--line:rgba(8,34,203,.14);
+    --cyan:#49ACF7;--blue:#0822CB;--pink:#F1A9F9;--purple:#6328DE;
+    --text:#121747;--muted:#6972a6;--soft:#f0f3ff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;min-width:320px;background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;line-height:1.7}
+  body:before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(8,34,203,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(8,34,203,.04) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}
+  .aurora{position:fixed;inset:-30% -20% auto;height:760px;z-index:0;pointer-events:none;background:radial-gradient(circle at 22% 40%,rgba(73,172,247,.18),transparent 35%),radial-gradient(circle at 70% 20%,rgba(99,40,222,.16),transparent 34%),radial-gradient(circle at 86% 62%,rgba(241,169,249,.12),transparent 28%);filter:blur(20px)}
+  .shell{position:relative;z-index:1;max-width:1080px;margin:auto;padding:32px 28px 80px}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}
+  .brand{display:inline-flex;align-items:center}.brand img{height:46px;width:auto;display:block}.brand-text{font-size:20px;font-weight:700;letter-spacing:.08em;white-space:nowrap;line-height:1}
+  .back-link{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blue);font-size:13px;font-weight:600;text-decoration:none;transition:.2s}
+  .back-link:hover{border-color:var(--cyan);box-shadow:0 4px 14px rgba(73,172,247,.2)}
+  .hero{position:relative;overflow:hidden;background:linear-gradient(118deg,#0822CB 0%,#3a1ed6 48%,#6328DE 78%,#8f50e8 100%);border-radius:26px;padding:38px 34px;color:#fff;box-shadow:0 28px 70px rgba(8,34,203,.22);margin-bottom:24px}
+  .hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-70px;top:-120px;box-shadow:0 0 0 55px rgba(73,172,247,.06),0 0 0 110px rgba(241,169,249,.05)}
+  .hero>*{position:relative;z-index:1}
+  .hero .badge{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font-size:12px;font-weight:700;margin-bottom:14px;border:1px solid rgba(255,255,255,.24)}
+  .hero .badge:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 9px var(--pink)}
+  .hero h1{margin:0 0 9px;font-size:clamp(30px,4vw,46px);line-height:1.2;letter-spacing:.01em}
+  .hero .slogan{margin:0 0 15px;color:#fff;font-size:15px;font-weight:600}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:10px 20px;color:rgba(255,255,255,.82);font-size:13px}.hero .meta b{color:#fff}
+  .section{background:var(--panel);border-radius:20px;padding:28px 30px;border:1px solid var(--line);margin-bottom:22px;box-shadow:0 12px 34px rgba(8,34,203,.04)}
+  .section h2{margin:0 0 18px;font-size:20px;display:flex;align-items:center;gap:10px}.section h2:before{content:"";display:block;width:4px;height:18px;background:linear-gradient(180deg,var(--cyan),var(--blue));border-radius:2px}
+  .summary{font-size:15px;color:#2a3464}.summary p{margin:0 0 10px}.summary p:last-child{margin-bottom:0}.summary strong{color:var(--blue)}
+  .menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+  .menu-item{padding:14px;border-radius:12px;background:var(--soft);border-top:3px solid var(--cyan)}.menu-item b{display:block;color:var(--blue);font-size:13px}.menu-item span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+  .outline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+  .outline li{margin:0}.outline a{display:flex;align-items:center;min-height:52px;padding:11px 14px;border-radius:11px;background:var(--soft);border-left:3px solid var(--cyan);color:var(--text);font-size:14px;text-decoration:none;transition:.2s}
+  .outline a:hover{transform:translateX(3px);background:#e8ecff}.outline .num{flex:0 0 24px;height:24px;line-height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:700;text-align:center;margin-right:10px}
+  .cards{display:grid;grid-template-columns:1fr;gap:18px}.card{scroll-margin-top:24px;position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--soft) 100%);border-radius:16px;padding:22px;border:1px solid var(--line);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,34,203,.1)}.card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple))}
+  .card .card-no{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.2em}.card h3{margin:6px 0 12px;font-size:17px;line-height:1.4}.card p{margin:0 0 10px;font-size:14px;color:#3a4470}.card p:last-child{margin-bottom:0}.card ul{margin:7px 0 4px;padding-left:21px;font-size:14px;color:#3a4470}.card li{margin-bottom:5px}.accent{color:var(--blue);font-weight:700}
+  .highlight{display:block;margin:12px 0;padding:11px 14px;background:rgba(73,172,247,.12);border-left:3px solid var(--cyan);border-radius:7px;color:var(--blue);font-size:14px;font-weight:600}
+  .formula{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0}.formula span{padding:7px 11px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--blue);font-size:13px;font-weight:700}.formula i{font-style:normal;color:var(--purple);font-weight:700}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{padding:14px 15px;border-radius:12px;background:#fff;border:1px solid var(--line)}.mini b{display:block;color:var(--blue);font-size:14px;margin-bottom:4px}.mini p{font-size:13px;margin:0}
+  .work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.work{padding:14px;border-radius:12px;background:#fff;border:1px solid var(--line)}.work b{display:block;color:var(--purple);font-size:13px}.work span{display:block;color:#3a4470;font-size:12px;margin-top:4px}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}.step{padding:14px;border-radius:12px;background:#fff;border:1px solid var(--line)}.step em{font-style:normal;color:var(--pink);background:var(--purple);border-radius:999px;padding:2px 8px;font-size:10px;font-weight:700}.step b{display:block;color:var(--blue);font-size:13px;margin:8px 0 3px}.step span{display:block;color:var(--muted);font-size:12px}
+  .pit-list{display:grid;gap:9px}.pit{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:13px;border-radius:12px;background:#fff;border:1px solid var(--line)}.pit .label{color:var(--purple);font-size:13px;font-weight:800}.pit b{font-size:14px}.pit p{margin:3px 0 0;font-size:13px}.pit strong{color:var(--blue)}
+  .homework{scroll-margin-top:24px;background:linear-gradient(135deg,#eef4ff,#fbf1ff);border-color:rgba(99,40,222,.2)}.homework-kicker{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--purple);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;margin-bottom:10px}.prompt{margin:14px 0;padding:16px;border-radius:12px;background:#fff;border:1px dashed rgba(99,40,222,.35);color:#2a3464;font-size:14px}.checklist{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.check{padding:13px;border-radius:11px;background:#fff;border:1px solid var(--line);font-size:13px;color:#3a4470}.check b{display:block;color:var(--blue);margin-bottom:3px}
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.rule{padding:16px;border-radius:13px;background:var(--soft);border:1px solid var(--line)}.rule b{display:block;color:var(--purple);font-size:14px;margin-bottom:5px}.rule p{font-size:13px;margin:0;color:#3a4470}
+  .related{display:grid;grid-template-columns:1fr 1fr;gap:12px}.related a{padding:16px;border-radius:13px;background:var(--soft);border:1px solid var(--line);color:var(--text);text-decoration:none;transition:.2s}.related a:hover{transform:translateY(-2px);border-color:var(--cyan)}.related small{display:block;color:var(--purple);font-weight:700}.related b{display:block;margin-top:3px}
+  .cta{padding:0;border:none;background:none}.cta-link{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 26px;border-radius:18px;background:linear-gradient(135deg,#0822CB,#6328DE);color:#fff;text-decoration:none;box-shadow:0 16px 40px rgba(8,34,203,.24);transition:.2s}.cta-link:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(8,34,203,.34)}.cta-title{font-size:18px;font-weight:700}.cta-subtitle{font-size:13px;opacity:.82}.cta-arrow{font-size:24px;font-weight:700}
+  footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.05em}
+  @media(max-width:760px){.menu-grid,.work-grid,.steps{grid-template-columns:1fr 1fr}.outline{grid-template-columns:1fr}.rules,.checklist{grid-template-columns:1fr}.hero{padding:30px 24px}}
+  @media(max-width:560px){.shell{padding:20px 15px 60px}.brand-text{display:none}.hero{padding:25px 21px}.hero h1{font-size:27px}.section{padding:21px 18px}.menu-grid,.work-grid,.steps,.two-col,.related{grid-template-columns:1fr}.pit{grid-template-columns:1fr}.back-link{padding:7px 13px}}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<main class="shell">
+  <div class="topbar">
+    <div class="brand"><img src="../0820/qiancheng-logo.png" alt="前程讲堂" /><span class="brand-text">前程讲堂</span></div>
+    <a href="../index.html" class="back-link">← 课程目录</a>
+  </div>
+
+  <section class="hero">
+    <div class="badge">AI · 使用场景与实践</div>
+    <h1>《AI 的使用场景与实践》</h1>
+    <p class="slogan">AI 不会取代你，但会用 AI 的同事可能会</p>
+    <div class="meta">
+      <span>讲师 <b>雷坤</b></span>
+      <span>日期 <b>2026.07.09</b></span>
+      <span>时长 <b>60 分钟</b></span>
+      <span>状态 <b>已发布</b></span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>课程摘要</h2>
+    <div class="summary">
+      <p>这是一堂面向 AI 初学者的场景化实践课。课程先用 ChatGPT、AI 设计和 Agent 自动找供应商三个瞬间，让大家看到 AI 已从“会聊天”走向“会干活”；再把 AI 比作一名知识丰富、全天在线、但需要主管验收的实习生。</p>
+      <p>核心内容覆盖聊天工具与 Agent 的区别、AI 可以承担的写作、阅读、调研和制作四类工作，以及<strong>“身份＋背景＋任务＋要求”</strong>的提问公式。课程通过行业调研案例和现场点菜演示，展示从明确需求、下达指令、自动执行到人工核验的完整流程。</p>
+      <p>最后，课程总结新手最常见的三个坑：把 AI 当搜索引擎、对结果全信或全不信、直接输入公司敏感信息。无论工具如何变化，真正长期有效的能力始终是<strong>把需求讲清楚</strong>和<strong>验收结果</strong>。</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item"><b>前菜</b><span>认识你的新同事</span></div>
+      <div class="menu-item"><b>主菜</b><span>我是如何用它干活的</span></div>
+      <div class="menu-item"><b>招牌菜</b><span>现场点菜，立马可取</span></div>
+      <div class="menu-item"><b>甜点</b><span>现在上车晚不晚</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>课程目录</h2>
+    <ol class="outline">
+      <li><a href="#card-01"><span class="num">1</span>AI 从“会聊天”走向“会干活”</a></li>
+      <li><a href="#card-02"><span class="num">2</span>正确定位：把 AI 当实习生</a></li>
+      <li><a href="#card-03"><span class="num">3</span>聊天工具、Agent 与 Harness</a></li>
+      <li><a href="#card-04"><span class="num">4</span>AI 能承担的四类工作</a></li>
+      <li><a href="#card-05"><span class="num">5</span>好提问的四要素公式</a></li>
+      <li><a href="#card-06"><span class="num">6</span>行业调研案例：从想法到成品</a></li>
+      <li><a href="#card-07"><span class="num">7</span>现场实践：三类外贸任务</a></li>
+      <li><a href="#card-08"><span class="num">8</span>新手最常见的三大坑</a></li>
+      <li><a href="#card-09"><span class="num">9</span>AI 迭代越来越快，现在并不晚</a></li>
+      <li><a href="#card-10"><span class="num">10</span>工具会变，两种能力不会过期</a></li>
+      <li><a href="#homework"><span class="num">11</span>课后实践：完成一个真实工作任务</a></li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>关键知识点卡片</h2>
+    <div class="cards">
+      <article class="card" id="card-01">
+        <div class="card-no">CARD 01</div>
+        <h3>AI 已经从“会聊天”走向“会做设计、会自己行动”</h3>
+        <p>课程用三个阶段展示 AI 能力的变化：早期的 ChatGPT 像真人一样对话；随后 AI 可以生成完整的中文课程海报；再往前一步，Agent 能自己进入平台、查找厂家并推进任务。</p>
+        <span class="highlight">变化的关键不是回答更像人，而是 AI 开始能够调用工具并完成真实工作。</span>
+      </article>
+
+      <article class="card" id="card-02">
+        <div class="card-no">CARD 02</div>
+        <h3>把 AI 当作一名需要管理和验收的实习生</h3>
+        <p>AI 读过大量资料、全天在线、响应很快，但也可能“一本正经地胡说八道”。使用者不是把任务丢过去就结束，而是要承担主管角色。</p>
+        <ul>
+          <li>先讲清楚任务目标和背景。</li>
+          <li>过程中持续沟通、纠正方向。</li>
+          <li>完成后核验关键事实与交付质量。</li>
+        </ul>
+      </article>
+
+      <article class="card" id="card-03">
+        <div class="card-no">CARD 03</div>
+        <h3>第一层会聊天，第二层会干活</h3>
+        <div class="two-col">
+          <div class="mini"><b>聊天工具</b><p>适合问答、写作、翻译、总结、图片生成等内容任务，重点是“给你答案”。</p></div>
+          <div class="mini"><b>Agent / 工作型工具</b><p>可以查资料、调用工具、制作文件或网页，重点是“替你完成一段工作流程”。</p></div>
+        </div>
+        <p style="margin-top:12px">课程用“千里马与马具”解释 Harness：大模型提供能力，合适的工具和流程让它真正拉车干活。</p>
+      </article>
+
+      <article class="card" id="card-04">
+        <div class="card-no">CARD 04</div>
+        <h3>AI 能替你承担的四类工作</h3>
+        <div class="work-grid">
+          <div class="work"><b>WRITE · 写</b><span>开发信、跟单邮件、催款信、周报</span></div>
+          <div class="work"><b>READ · 读</b><span>总结长邮件、阅读合同、识别风险点</span></div>
+          <div class="work"><b>RESEARCH · 查</b><span>市场调研、竞品分析、客户背调</span></div>
+          <div class="work"><b>BUILD · 做</b><span>做图、做表、做网页、做 PPT</span></div>
+        </div>
+        <span class="highlight">先从自己每周反复做、耗时多、规则相对清楚的任务开始，最容易感受到价值。</span>
+      </article>
+
+      <article class="card" id="card-05">
+        <div class="card-no">CARD 05</div>
+        <h3>好提问的公式：身份＋背景＋任务＋要求</h3>
+        <div class="formula"><span>身份</span><i>＋</i><span>背景</span><i>＋</i><span>任务</span><i>＋</i><span>要求</span></div>
+        <p>“帮我写封邮件”只能得到泛化模板。更有效的说法应该交代：AI 扮演谁、客户是什么情况、要完成什么任务、语气和格式有什么要求。</p>
+        <p><b class="accent">例：</b>你是一名资深外贸业务员。客户是合作两年的美国家具进口商，最近回复变慢。请写一封英文跟进邮件，要求简短、不卑不亢，并在结尾给出一个促单小优惠。</p>
+      </article>
+
+      <article class="card" id="card-06">
+        <div class="card-no">CARD 06</div>
+        <h3>行业调研案例：让 AI 从模糊想法走到可验收成品</h3>
+        <div class="steps">
+          <div class="step"><em>STEP 1</em><b>我怎么想</b><span>明确范围、深度与交付形式</span></div>
+          <div class="step"><em>STEP 2</em><b>我怎么问</b><span>用真实语言下达指令</span></div>
+          <div class="step"><em>STEP 3</em><b>它怎么做</b><span>查资料、组织信息、排版成品</span></div>
+          <div class="step"><em>STEP 4</em><b>我怎么改</b><span>核实数据，调整结论与措辞</span></div>
+        </div>
+        <p>案例中，原本约一个月的行业调研工作压缩到约十天。省下来的时间可以用于跟进更多客户、提高邮件处理效率、专注创意判断或解除团队瓶颈。</p>
+      </article>
+
+      <article class="card" id="card-07">
+        <div class="card-no">CARD 07</div>
+        <h3>现场点菜：把 AI 放进真实外贸工作</h3>
+        <ul>
+          <li><b>救活沉默客户：</b>针对询盘后两周未回复的客户，生成三种语气的英文跟进邮件。</li>
+          <li><b>制作学习卡片：</b>把 EXW、FCA、CPT、CIP、DAP、DPU、DDP 做成责任、风险和易混点对比网页。</li>
+          <li><b>生成产品网页：</b>围绕某款产品，整理卖点、参数和 FAQ，生成单页介绍。</li>
+        </ul>
+        <span class="highlight">不要只“听懂 AI”，要让它当场处理一个和自己岗位相关的真实任务。</span>
+      </article>
+
+      <article class="card" id="card-08">
+        <div class="card-no">CARD 08</div>
+        <h3>新手最常见的三大坑</h3>
+        <div class="pit-list">
+          <div class="pit"><div class="label">坑一</div><div><b>把 AI 当搜索引擎</b><p>问一句就走。<strong>正确姿势：</strong>像带实习生一样来回沟通，明确指出不满意的地方。</p></div></div>
+          <div class="pit"><div class="label">坑二</div><div><b>对结果全信，或者全不信</b><p>AI 可能编造数字。<strong>正确姿势：</strong>关键事实人工核实，对外发送的内容必须过人眼。</p></div></div>
+          <div class="pit"><div class="label">坑三</div><div><b>直接输入公司敏感信息</b><p>客户名单、报价体系等不要整段输入。<strong>正确姿势：</strong>先脱敏，再用“某美国客户”等代称提问。</p></div></div>
+        </div>
+      </article>
+
+      <article class="card" id="card-09">
+        <div class="card-no">CARD 09</div>
+        <h3>AI 跑得越快，你上车的成本越低</h3>
+        <p>从图灵提出“机器能思考吗”，到深蓝、AlphaGo、ChatGPT，再到模型和 Agent 快速迭代，AI 的发展周期持续缩短。</p>
+        <span class="highlight">后来者没有惩罚，只有红利。真正会过期的不是入场时间，而是“永远观望”。</span>
+      </article>
+
+      <article class="card" id="card-10">
+        <div class="card-no">CARD 10</div>
+        <h3>工具月月换，两种能力不会过期</h3>
+        <div class="two-col">
+          <div class="mini"><b>把需求讲清楚的能力</b><p>明确身份、背景、任务和要求，本质上依靠你对岗位与业务的理解。</p></div>
+          <div class="mini"><b>验收结果的判断力</b><p>你越懂业务，越能发现错误、纠正方向，也越能放大 AI 的价值。</p></div>
+        </div>
+        <span class="highlight">AI 不淘汰任何岗位的专业，它只放大它。</span>
+      </article>
+    </div>
+  </section>
+
+  <section class="section homework" id="homework">
+    <span class="homework-kicker">课后实践 · 15 分钟</span>
+    <h2>让 AI 完成一个本周真实发生的工作任务</h2>
+    <p>从“写、读、查、做”中选择一类任务，先脱敏，再使用四要素公式发给你最常用的 AI。</p>
+    <div class="prompt">你是一名【身份】。现在的工作背景是【背景】。请帮我完成【具体任务】。交付要求是【格式、语气、长度、对象、截止标准】。如果信息不足，请先向我提问，不要直接猜测。</div>
+    <div class="checklist">
+      <div class="check"><b>第一轮：讲清楚</b>是否包含身份、背景、任务和要求？</div>
+      <div class="check"><b>第二轮：会纠正</b>指出一处不满意，并要求 AI 修改。</div>
+      <div class="check"><b>第三轮：能验收</b>核对关键事实，确认敏感信息已脱敏。</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>三条使用原则</h2>
+    <div class="rules">
+      <div class="rule"><b>像带实习生一样沟通</b><p>不要问一句就走，通过反馈和纠正逐步提高结果质量。</p></div>
+      <div class="rule"><b>关键事实必须人工核验</b><p>数据、合同条款和对外内容不能只依赖 AI 判断。</p></div>
+      <div class="rule"><b>敏感信息先脱敏</b><p>客户、价格、内部规则等用代称或结构化信息表达。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>关联课程</h2>
+    <div class="related">
+      <a href="../0820/0820-preview.html"><small>0820 · AI 进阶</small><b>《AI 工具使用：从入门到实战》</b></a>
+      <a href="../0516/0516-preview.html"><small>0516 · 外贸基础</small><b>《外贸三要素与基础认识》</b></a>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <a href="../index.html" class="cta-link"><span><span class="cta-title">返回课程目录</span><span class="cta-subtitle">继续查看前程讲堂的其他课程回顾</span></span><span class="cta-arrow">→</span></a>
+  </section>
+
+  <footer>NINGBO FUTURE · 前程讲堂课程知识库</footer>
+</main>
+</body>
+</html>
