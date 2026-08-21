@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>《交易与谈判的撮合》· 0608 课程回顾</title>
+<style>
+  :root{--bg:#f6f7ff;--panel:#fff;--line:rgba(8,34,203,.14);--cyan:#49ACF7;--blue:#0822CB;--pink:#F1A9F9;--purple:#6328DE;--text:#121747;--muted:#6972a6;--soft:#f0f3ff}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;min-width:320px;background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;line-height:1.7}
+  body:before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(8,34,203,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(8,34,203,.04) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}
+  .aurora{position:fixed;inset:-30% -20% auto;height:760px;z-index:0;pointer-events:none;background:radial-gradient(circle at 22% 40%,rgba(73,172,247,.18),transparent 35%),radial-gradient(circle at 70% 20%,rgba(99,40,222,.16),transparent 34%),radial-gradient(circle at 86% 62%,rgba(241,169,249,.12),transparent 28%);filter:blur(20px)}
+  .shell{position:relative;z-index:1;max-width:1080px;margin:auto;padding:32px 28px 80px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}
+  .brand{display:inline-flex;align-items:center}.brand img{height:46px;width:auto;display:block}.brand-text{font-size:20px;font-weight:700;letter-spacing:.08em;white-space:nowrap;line-height:1}
+  .back-link{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blue);font-size:13px;font-weight:600;text-decoration:none;transition:.2s}.back-link:hover{border-color:var(--cyan);box-shadow:0 4px 14px rgba(73,172,247,.2)}
+  .hero{position:relative;overflow:hidden;background:linear-gradient(118deg,#0822CB 0%,#3a1ed6 48%,#6328DE 78%,#8f50e8 100%);border-radius:26px;padding:38px 34px;color:#fff;box-shadow:0 28px 70px rgba(8,34,203,.22);margin-bottom:24px}.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-70px;top:-120px;box-shadow:0 0 0 55px rgba(73,172,247,.06),0 0 0 110px rgba(241,169,249,.05)}.hero>*{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.14);font-size:12px;font-weight:700;margin-bottom:14px;border:1px solid rgba(255,255,255,.24)}.badge:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 9px var(--pink)}
+  .hero h1{margin:0 0 9px;font-size:clamp(30px,4vw,46px);line-height:1.2}.hero .slogan{margin:0 0 15px;color:#fff;font-size:15px;font-weight:600}.hero .meta{display:flex;flex-wrap:wrap;gap:10px 20px;color:rgba(255,255,255,.82);font-size:13px}.hero .meta b{color:#fff}
+  .section{background:var(--panel);border-radius:20px;padding:28px 30px;border:1px solid var(--line);margin-bottom:22px;box-shadow:0 12px 34px rgba(8,34,203,.04)}.section h2{margin:0 0 18px;font-size:20px;display:flex;align-items:center;gap:10px}.section h2:before{content:"";display:block;width:4px;height:18px;background:linear-gradient(180deg,var(--cyan),var(--blue));border-radius:2px}
+  .summary{font-size:15px;color:#2a3464}.summary p{margin:0 0 10px}.summary p:last-child{margin-bottom:0}.summary strong{color:var(--blue)}
+  .goal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin-top:18px}.goal{padding:15px;border-radius:12px;background:var(--soft);border-top:3px solid var(--cyan)}.goal b{display:block;color:var(--blue);font-size:14px}.goal span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+  .outline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}.outline li{margin:0}.outline a{display:flex;align-items:center;min-height:52px;padding:11px 14px;border-radius:11px;background:var(--soft);border-left:3px solid var(--cyan);color:var(--text);font-size:14px;text-decoration:none;transition:.2s}.outline a:hover{transform:translateX(3px);background:#e8ecff}.outline .num{flex:0 0 24px;height:24px;line-height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:700;text-align:center;margin-right:10px}
+  .cards{display:grid;gap:18px}.card{scroll-margin-top:24px;position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--soft) 100%);border-radius:16px;padding:22px;border:1px solid var(--line);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,34,203,.1)}.card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple))}.card-no{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.2em}.card h3{margin:6px 0 12px;font-size:17px;line-height:1.4}.card p{margin:0 0 10px;font-size:14px;color:#3a4470}.card p:last-child{margin-bottom:0}.card ul{margin:7px 0 4px;padding-left:21px;font-size:14px;color:#3a4470}.card li{margin-bottom:5px}.accent{color:var(--blue);font-weight:700}.highlight{display:block;margin:12px 0;padding:11px 14px;background:rgba(73,172,247,.12);border-left:3px solid var(--cyan);border-radius:7px;color:var(--blue);font-size:14px;font-weight:600}
+  .mindset{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{padding:14px 15px;border-radius:12px;background:#fff;border:1px solid var(--line)}.mini b{display:block;color:var(--blue);font-size:14px;margin-bottom:4px}.mini p{font-size:13px;margin:0}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 0}.flow-item{padding:14px;border-radius:12px;background:#fff;border:1px solid var(--line)}.flow-item small{display:block;color:var(--purple);font-weight:800}.flow-item b{display:block;color:var(--blue);font-size:13px;margin-top:5px}.flow-item span{display:block;color:var(--muted);font-size:12px;margin-top:3px}
+  .case{margin-top:12px;padding:13px 15px;border-radius:11px;background:#fff;border:1px dashed rgba(99,40,222,.3)}.case b{color:var(--purple);font-size:13px}.case p{margin:3px 0 0;font-size:13px}
+  .warning-list{display:grid;gap:9px}.warning{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:14px;border-radius:12px;background:#fff;border:1px solid var(--line)}.warning .no{color:var(--purple);font-weight:800}.warning b{font-size:14px}.warning p{margin:3px 0 0;font-size:13px}
+  .homework{scroll-margin-top:24px;background:linear-gradient(135deg,#eef4ff,#fbf1ff);border-color:rgba(99,40,222,.2)}.homework-kicker{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--purple);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;margin-bottom:10px}.worksheet{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.field{padding:13px;border-radius:11px;background:#fff;border:1px solid var(--line);font-size:13px;color:#3a4470}.field b{display:block;color:var(--blue);margin-bottom:3px}
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.rule{padding:16px;border-radius:13px;background:var(--soft);border:1px solid var(--line)}.rule b{display:block;color:var(--purple);font-size:14px;margin-bottom:5px}.rule p{font-size:13px;margin:0;color:#3a4470}
+  .related{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.related a{padding:16px;border-radius:13px;background:var(--soft);border:1px solid var(--line);color:var(--text);text-decoration:none;transition:.2s}.related a:hover{transform:translateY(-2px);border-color:var(--cyan)}.related small{display:block;color:var(--purple);font-weight:700}.related b{display:block;margin-top:3px}
+  .cta{padding:0;border:none;background:none}.cta-link{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 26px;border-radius:18px;background:linear-gradient(135deg,#0822CB,#6328DE);color:#fff;text-decoration:none;box-shadow:0 16px 40px rgba(8,34,203,.24);transition:.2s}.cta-link:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(8,34,203,.34)}.cta-title{font-size:18px;font-weight:700}.cta-subtitle{font-size:13px;opacity:.82}.cta-arrow{font-size:24px;font-weight:700}
+  footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.05em}
+  @media(max-width:760px){.goal-grid,.rules,.related{grid-template-columns:1fr}.outline{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.hero{padding:30px 24px}}
+  @media(max-width:560px){.shell{padding:20px 15px 60px}.brand-text{display:none}.hero{padding:25px 21px}.hero h1{font-size:27px}.section{padding:21px 18px}.mindset,.worksheet,.flow{grid-template-columns:1fr}.warning{grid-template-columns:1fr}.back-link{padding:7px 13px}}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<main class="shell">
+  <div class="topbar">
+    <div class="brand"><img src="../0820/qiancheng-logo.png" alt="前程讲堂" /><span class="brand-text">前程讲堂</span></div>
+    <a href="../index.html" class="back-link">← 课程目录</a>
+  </div>
+
+  <section class="hero">
+    <div class="badge">外贸 · 交易与谈判</div>
+    <h1>《交易与谈判的撮合》</h1>
+    <p class="slogan">从入门到进阶：谈判前有底气，谈判中有方法，谈判后有闭环</p>
+    <div class="meta">
+      <span>讲师 <b>周丹</b></span><span>日期 <b>2026.06.08</b></span><span>状态 <b>已发布</b></span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>课程摘要</h2>
+    <div class="summary">
+      <p>本课程围绕外贸业务中的交易撮合与谈判展开，适合所有对交易撮合与谈判感兴趣、希望提升成交能力的人学习。</p>
+      <p>课程首先强调谈判前的心理建设：<strong>笃定结果、坚定信念</strong>。随后从三组实战技巧展开：用洞察与共情找到客户真正的关键诉求；通过主动给出 A/B 方案和适当放低姿态推进合作；在价格与条件博弈中掌握时机、保持耐心。</p>
+      <p>最后，课程用三类反面典型提醒大家：不要毫无逻辑地硬还价，不要在索赔谈判中先失去底气，也不要通过贬低竞争对手来抬高自己。撮合能力的核心，是以清晰目标为出发点，以客户需求为中心，用专业方式推动双方走向结果。</p>
+    </div>
+    <div class="goal-grid">
+      <div class="goal"><b>明发心 · 助力</b><span>掌握撮合技巧，在业务中争取更多订单</span></div>
+      <div class="goal"><b>对方式 · 实战</b><span>用真实案例提炼人人都能理解的落地方法</span></div>
+      <div class="goal"><b>赢结果 · 闭环</b><span>谈判前有底气、谈判中有方法、谈判后有闭环</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>课程目录</h2>
+    <ol class="outline">
+      <li><a href="#card-01"><span class="num">1</span>谈判前先笃定结果</a></li>
+      <li><a href="#card-02"><span class="num">2</span>坚定信念，建立谈判底气</a></li>
+      <li><a href="#card-03"><span class="num">3</span>洞察客户的核心诉求</a></li>
+      <li><a href="#card-04"><span class="num">4</span>换位思考与共情</a></li>
+      <li><a href="#card-05"><span class="num">5</span>主动提供 A/B 方案</a></li>
+      <li><a href="#card-06"><span class="num">6</span>谦虚求进，管理合作姿态</a></li>
+      <li><a href="#card-07"><span class="num">7</span>掌控时机与谈判节奏</a></li>
+      <li><a href="#card-08"><span class="num">8</span>警惕三大反面典型</a></li>
+      <li><a href="#homework"><span class="num">9</span>课后实践：制作一张谈判准备单</a></li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>关键知识点卡片</h2>
+    <div class="cards">
+      <article class="card" id="card-01">
+        <div class="card-no">CARD 01</div><h3>谈判开始之前，先明确终极目标</h3>
+        <p>无论是促成合作、谈好索赔，还是落实订单，都要先明确自己真正要争取的结果。目标不清晰，谈判就容易被对方的节奏带走。</p>
+        <span class="highlight">如果自己都不相信自己的方案，客户更不会相信。</span>
+      </article>
+
+      <article class="card" id="card-02">
+        <div class="card-no">CARD 02</div><h3>坚定信念：谈判也是意志力的比拼</h3>
+        <p>保持气势并不等于强硬，而是相信自己的方案具有价值，并能够用事实、逻辑和专业判断支撑立场。</p>
+        <div class="mindset"><div class="mini"><b>底气来自准备</b><p>清楚目标、价值、边界和可接受条件。</p></div><div class="mini"><b>信念体现为稳定</b><p>面对质疑不慌乱，避免先从心理上让步。</p></div></div>
+      </article>
+
+      <article class="card" id="card-03">
+        <div class="card-no">CARD 03</div><h3>洞察客户核心诉求：找到成交的“关键点”</h3>
+        <p>客户表面上在讨论价格，真正关心的可能是品质稳定、特定认证、风险保障或交付可靠性。谈判前要先识别最影响客户决策的那个关键点。</p>
+        <div class="case"><b>脱敏案例</b><p>某日用品大订单中，业务员识别出客户对特定认证的刚性需求，从而跳出单纯的价格拉锯，用专业能力推动成交。</p></div>
+      </article>
+
+      <article class="card" id="card-04">
+        <div class="card-no">CARD 04</div><h3>换位思考：如果由你花这笔钱，你会怎么选？</h3>
+        <p>设身处地理解买家的库存压力、风险顾虑和内部决策难点，才能提出真正有帮助的方案。共情不是顺从，而是用客户视角重新审视自己的报价与证据。</p>
+        <div class="case"><b>脱敏案例</b><p>与其反复在邮件中争论，不如邀请客户实地查看生产流程与交付能力，让客户通过亲眼验证降低决策风险。</p></div>
+      </article>
+
+      <article class="card" id="card-05">
+        <div class="card-no">CARD 05</div><h3>主动提供选项，让客户在你的框架内做决定</h3>
+        <p>不要只问客户“您想怎么做”。提前准备多套可执行方案，把问题从“是否合作”转化为“选择哪一种合作方式”。</p>
+        <div class="flow"><div class="flow-item"><small>01</small><b>识别约束</b><span>预算、交期、包装、认证</span></div><div class="flow-item"><small>02</small><b>设计方案</b><span>形成 A/B 两种路径</span></div><div class="flow-item"><small>03</small><b>说明差异</b><span>价格、风险和收益透明</span></div><div class="flow-item"><small>04</small><b>推动选择</b><span>给出专业建议和下一步</span></div></div>
+        <div class="case"><b>脱敏案例</b><p>在产品推介中准备多套陈列和包装方案，让客户从“要不要买”转变为“选哪套方案”。</p></div>
+      </article>
+
+      <article class="card" id="card-06">
+        <div class="card-no">CARD 06</div><h3>谦虚求进：放低姿态不等于失去原则</h3>
+        <p>合作初期适当放低姿态，可以表达诚意、增加沟通机会，但谦逊不等于一味退让。专业价值、目标和底线仍要保持清晰。</p>
+        <div class="case"><b>脱敏案例</b><p>某长期合作关系的建立，来自多次主动拜访和持续表达诚意，最终以耐心换来信任和战略合作。</p></div>
+      </article>
+
+      <article class="card" id="card-07">
+        <div class="card-no">CARD 07</div><h3>让子弹飞一会儿：掌控谈判的时间艺术</h3>
+        <p>价格谈判要预留时间，不要急于亮出底牌。沉默、等待和阶段性停顿，能够给双方留出消化空间，也能避免因为焦虑而过早让步。</p>
+        <span class="highlight">耐心不是拖延，而是根据局势选择什么时候推进、什么时候等待。</span>
+      </article>
+
+      <article class="card" id="card-08">
+        <div class="card-no">CARD 08</div><h3>警惕谈判中的三大反面典型</h3>
+        <div class="warning-list">
+          <div class="warning"><div class="no">01</div><div><b>毫无逻辑地硬还价</b><p>没有理由和缓冲的直接杀价，容易让谈判陷入僵局。每次还价都要有依据和交换条件。</p></div></div>
+          <div class="warning"><div class="no">02</div><div><b>谈索赔时先失去底气</b><p>如果自己先觉得理亏，就会丧失主动权。先核实事实、责任和证据，再确定立场。</p></div></div>
+          <div class="warning"><div class="no">03</div><div><b>通过贬低竞争对手抬高自己</b><p>真正的专业形象来自价值证明，而不是攻击别人；贬低同行只会降低客户信任。</p></div></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section homework" id="homework">
+    <span class="homework-kicker">课后实践 · 10 分钟</span>
+    <h2>为一个正在推进的客户制作“谈判准备单”</h2>
+    <p>选择一个真实但已脱敏的客户场景，在下一次沟通前完成下面六项准备。</p>
+    <div class="worksheet">
+      <div class="field"><b>① 我的终极目标</b>希望促成什么结果？最低可接受结果是什么？</div>
+      <div class="field"><b>② 客户核心诉求</b>价格、品质、认证、交期、风险保障，哪个最关键？</div>
+      <div class="field"><b>③ 我的价值证据</b>用什么事实证明方案值得客户选择？</div>
+      <div class="field"><b>④ A/B 两套方案</b>分别适合什么条件？差异和取舍是什么？</div>
+      <div class="field"><b>⑤ 可交换条件</b>如果让步，希望换回订单量、付款或交期中的什么？</div>
+      <div class="field"><b>⑥ 节奏安排</b>什么时候推进，什么时候等待，下一步由谁完成？</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>三条谈判原则</h2>
+    <div class="rules">
+      <div class="rule"><b>底气来自目标与准备</b><p>先明确结果、边界与证据，再进入谈判。</p></div>
+      <div class="rule"><b>共情不是无条件让步</b><p>理解客户的难点，是为了设计更容易成交的方案。</p></div>
+      <div class="rule"><b>主动与耐心要同时存在</b><p>主动给选项、推下一步，也要懂得等待和控制节奏。</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>关联课程</h2>
+    <div class="related">
+      <a href="../0516/0516-preview.html"><small>0516 · 外贸基础</small><b>《外贸三要素与基础认识》</b></a>
+      <a href="../0709/0709-preview.html"><small>0709 · AI 入门</small><b>《AI 的使用场景与实践》</b></a>
+      <a href="../0820/0820-preview.html"><small>0820 · AI 进阶</small><b>《AI 工具使用：从入门到实战》</b></a>
+    </div>
+  </section>
+
+  <section class="section cta"><a href="../index.html" class="cta-link"><span><span class="cta-title">返回课程目录</span><span class="cta-subtitle">继续查看前程讲堂的其他课程回顾</span></span><span class="cta-arrow">→</span></a></section>
+  <footer>本回顾根据课程 PPT 整理 · 前程讲堂课程知识库</footer>
+</main>
+</body>
+</html>
