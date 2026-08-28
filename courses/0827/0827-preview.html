@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>《外贸业务场景与跟单逻辑》· 0827 课程回顾</title>
+<style>
+  :root{--bg:#f6f7ff;--panel:#fff;--line:rgba(8,34,203,.14);--cyan:#49ACF7;--blue:#0822CB;--pink:#F1A9F9;--purple:#6328DE;--text:#121747;--muted:#6972a6;--soft:#f0f3ff;--green:#15a67a;--red:#d85069}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;min-width:320px;background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",Inter,system-ui,sans-serif;line-height:1.7}
+  body:before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(8,34,203,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(8,34,203,.04) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}
+  .aurora{position:fixed;inset:-30% -20% auto;height:760px;z-index:0;pointer-events:none;background:radial-gradient(circle at 22% 40%,rgba(73,172,247,.18),transparent 35%),radial-gradient(circle at 70% 20%,rgba(99,40,222,.16),transparent 34%),radial-gradient(circle at 86% 62%,rgba(241,169,249,.12),transparent 28%);filter:blur(20px)}
+  .shell{position:relative;z-index:1;max-width:1080px;margin:auto;padding:32px 28px 80px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}.brand{display:inline-flex;align-items:center}.brand img{height:46px;width:auto;display:block}.brand-text{font-size:20px;font-weight:700;letter-spacing:.08em;white-space:nowrap;line-height:1}
+  .back-link{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--blue);font-size:13px;font-weight:600;text-decoration:none;transition:.2s}.back-link:hover{border-color:var(--cyan);box-shadow:0 4px 14px rgba(73,172,247,.2)}
+  .hero{position:relative;overflow:hidden;background:linear-gradient(118deg,#0822CB 0%,#3a1ed6 48%,#6328DE 78%,#8f50e8 100%);border-radius:26px;padding:38px 34px;color:#fff;box-shadow:0 28px 70px rgba(8,34,203,.22);margin-bottom:24px}.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.2);border-radius:50%;right:-70px;top:-120px;box-shadow:0 0 0 55px rgba(73,172,247,.06),0 0 0 110px rgba(241,169,249,.05)}.hero>*{position:relative;z-index:1}
+  .badge{display:inline-flex;align-items:center;gap:7px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.14);font-size:12px;font-weight:700;margin-bottom:14px;border:1px solid rgba(255,255,255,.24)}.badge:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 9px var(--pink)}
+  .hero h1{margin:0 0 9px;font-size:clamp(30px,4vw,46px);line-height:1.2}.hero .slogan{margin:0 0 15px;color:#fff;font-size:15px;font-weight:600}.meta{display:flex;flex-wrap:wrap;gap:10px 20px;color:rgba(255,255,255,.82);font-size:13px}.meta b{color:#fff}
+  .section{background:var(--panel);border-radius:20px;padding:28px 30px;border:1px solid var(--line);margin-bottom:22px;box-shadow:0 12px 34px rgba(8,34,203,.04)}.section h2{margin:0 0 18px;font-size:20px;display:flex;align-items:center;gap:10px}.section h2:before{content:"";display:block;width:4px;height:18px;background:linear-gradient(180deg,var(--cyan),var(--blue));border-radius:2px}
+  .summary{font-size:15px;color:#2a3464}.summary p{margin:0 0 10px}.summary p:last-child{margin-bottom:0}.summary strong{color:var(--blue)}
+  .logic-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.logic-step{padding:14px 12px;border-radius:12px;background:var(--soft);border-top:3px solid var(--cyan);text-align:center}.logic-step b{display:block;color:var(--blue);font-size:13px}.logic-step span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+  .outline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}.outline li{margin:0}.outline a{display:flex;align-items:center;min-height:52px;padding:11px 14px;border-radius:11px;background:var(--soft);border-left:3px solid var(--cyan);color:var(--text);font-size:14px;text-decoration:none;transition:.2s}.outline a:hover{transform:translateX(3px);background:#e8ecff}.outline .num{flex:0 0 24px;height:24px;line-height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:12px;font-weight:700;text-align:center;margin-right:10px}
+  .cards{display:grid;gap:18px}.card{scroll-margin-top:24px;position:relative;overflow:hidden;background:linear-gradient(180deg,#fff 0%,var(--soft) 100%);border-radius:16px;padding:22px;border:1px solid var(--line);transition:.2s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,34,203,.1)}.card:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple))}.card-no{font-size:11px;font-weight:700;color:var(--blue);letter-spacing:.2em}.card h3{margin:6px 0 12px;font-size:17px;line-height:1.4}.card p{margin:0 0 10px;font-size:14px;color:#3a4470}.card p:last-child{margin-bottom:0}.card ul{margin:7px 0 4px;padding-left:21px;font-size:14px;color:#3a4470}.card li{margin-bottom:5px}
+  .highlight{display:block;margin:12px 0;padding:11px 14px;background:rgba(73,172,247,.12);border-left:3px solid var(--cyan);border-radius:7px;color:var(--blue);font-size:14px;font-weight:600}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:12px}.mini{padding:14px 15px;border-radius:12px;background:#fff;border:1px solid var(--line)}.mini b{display:block;color:var(--blue);font-size:14px;margin-bottom:4px}.mini p{font-size:13px;margin:0}.mini.green b{color:var(--green)}.mini.red b{color:var(--red)}
+  .mode-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:13px 0}.mode{padding:13px;border-radius:11px;background:#fff;border:1px solid var(--line)}.mode b{display:block;color:var(--blue);font-size:13px}.mode span{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:14px 0}.flow span{padding:7px 10px;border-radius:8px;background:#fff;border:1px solid var(--line);color:var(--blue);font-size:12px;font-weight:700}.flow i{font-style:normal;color:var(--purple);font-weight:700}
+  .check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:13px 0}.check{padding:13px;border-radius:11px;background:#fff;border:1px solid var(--line)}.check b{display:block;color:var(--blue);font-size:13px}.check span{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+  .takeaways{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.takeaway{padding:18px;border-radius:14px;background:var(--soft);border:1px solid var(--line)}.takeaway em{font-style:normal;font-size:11px;font-weight:700;color:var(--purple);letter-spacing:.12em}.takeaway h3{margin:7px 0;font-size:16px;color:var(--blue)}.takeaway p{margin:0;font-size:13px;color:#3a4470}
+  .action-section{scroll-margin-top:24px;background:linear-gradient(135deg,#eef4ff,#fbf1ff);border-color:rgba(99,40,222,.2)}.action-kicker{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--purple);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;margin-bottom:10px}.action-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.action{padding:15px;border-radius:12px;background:#fff;border:1px solid var(--line);font-size:12px;color:#3a4470}.action b{display:block;color:var(--blue);font-size:13px;margin-bottom:4px}.action em{display:inline-block;margin-bottom:7px;padding:2px 7px;border-radius:999px;background:rgba(99,40,222,.1);color:var(--purple);font-size:10px;font-style:normal;font-weight:700}
+  .quote-section{text-align:center;background:linear-gradient(135deg,#0822CB,#6328DE);color:#fff;border:0}.quote-section h2{justify-content:center}.quote-section h2:before{display:none}.quote-section strong{display:block;max-width:810px;margin:auto;font-size:clamp(22px,3vw,31px);line-height:1.5}.quote-section p{margin:10px 0 0;color:rgba(255,255,255,.75);font-size:13px}
+  .related{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.related a{padding:16px;border-radius:13px;background:var(--soft);border:1px solid var(--line);color:var(--text);text-decoration:none;transition:.2s}.related a:hover{transform:translateY(-2px);border-color:var(--cyan)}.related small{display:block;color:var(--purple);font-weight:700}.related b{display:block;margin-top:3px}
+  .cta{padding:0;border:none;background:none}.cta-link{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 26px;border-radius:18px;background:linear-gradient(135deg,#0822CB,#6328DE);color:#fff;text-decoration:none;box-shadow:0 16px 40px rgba(8,34,203,.24);transition:.2s}.cta-link:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(8,34,203,.34)}.cta-title{font-size:18px;font-weight:700}.cta-subtitle{font-size:13px;opacity:.82}.cta-arrow{font-size:24px;font-weight:700}
+  footer{margin-top:40px;text-align:center;color:var(--muted);font-size:12px;letter-spacing:.05em}
+  @media(max-width:800px){.mode-grid,.action-grid{grid-template-columns:1fr 1fr}.related{grid-template-columns:1fr}.hero{padding:30px 24px}}
+  @media(max-width:560px){.shell{padding:20px 15px 60px}.brand-text{display:none}.hero{padding:25px 21px}.hero h1{font-size:27px}.section{padding:21px 18px}.outline,.compare,.logic-chain,.check-grid,.takeaways,.mode-grid,.action-grid{grid-template-columns:1fr}.back-link{padding:7px 13px}}
+</style>
+</head>
+<body>
+<div class="aurora"></div>
+<main class="shell">
+  <div class="topbar">
+    <div class="brand"><img src="../0820/qiancheng-logo.png" alt="前程讲堂" /><span class="brand-text">前程讲堂</span></div>
+    <a href="../index.html" class="back-link">← 课程目录</a>
+  </div>
+
+  <section class="hero">
+    <div class="badge">外贸 · 业务流程</div>
+    <h1>《外贸业务场景与跟单逻辑》</h1>
+    <p class="slogan">从标准流程到特殊场景：先判断业务模式，再决定操作逻辑</p>
+    <div class="meta"><span>讲师 <b>王雨澄 Grace</b></span><span>日期 <b>2026.08</b></span><span>主题 <b>场景判断 · 跟单交运</b></span></div>
+  </section>
+
+  <section class="section">
+    <h2>课程摘要</h2>
+    <div class="summary">
+      <p>这节课不只回答系统“怎么操作”，更重要的是解释每一步“为什么这样操作”。<strong>系统是工具，业务逻辑才是根本</strong>；只有理解流程背后的客户需求、供应链执行、风险控制和交付结果，才能在不同场景中做出准确判断。</p>
+      <p>课程先区分传统外贸、采购代理、义乌库存货盘和跨境电商四类业务形态，再拆解传统外贸从客户询盘到收汇付款的八个标准环节，说明“三卡一致”、跟单连接和配载交运的关键逻辑。</p>
+      <p>最后通过义乌库存采购与采购代理案例说明：不同模式的盈利方式、流程顺序和风险承担并不相同。遇到特殊场景，正确顺序不是先找系统按钮，而是<strong>先判断业务模式 → 再判断流程顺序 → 最后进行系统操作</strong>。</p>
+    </div>
+    <div class="logic-chain"><div class="logic-step"><b>01 判断模式</b><span>这是什么业务</span></div><div class="logic-step"><b>02 判断顺序</b><span>业务如何流转</span></div><div class="logic-step"><b>03 系统操作</b><span>按逻辑准确落地</span></div></div>
+  </section>
+
+  <section class="section">
+    <h2>课程目录</h2>
+    <ol class="outline">
+      <li><a href="#card-01"><span class="num">1</span>系统是工具，逻辑是根本</a></li>
+      <li><a href="#card-02"><span class="num">2</span>四类业务形态与三种赚钱逻辑</a></li>
+      <li><a href="#card-03"><span class="num">3</span>标准流程：从询盘到收汇</a></li>
+      <li><a href="#card-04"><span class="num">4</span>前半程：从询谈到下单</a></li>
+      <li><a href="#card-05"><span class="num">5</span>后半程：从生产到收汇</a></li>
+      <li><a href="#card-06"><span class="num">6</span>洽谈的本质：三卡一致</a></li>
+      <li><a href="#card-07"><span class="num">7</span>跟单是业务的连接器</a></li>
+      <li><a href="#card-08"><span class="num">8</span>配载交运要从订单起考虑</a></li>
+      <li><a href="#card-09"><span class="num">9</span>特殊场景：义乌库存采购</a></li>
+      <li><a href="#card-10"><span class="num">10</span>采购代理与传统外贸的差异</a></li>
+      <li><a href="#review"><span class="num">11</span>课程总结：三句话</a></li>
+      <li><a href="#actions"><span class="num">12</span>落地练习：判断一个真实订单</a></li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <h2>关键知识点卡片</h2>
+    <div class="cards">
+      <article class="card" id="card-01"><div class="card-no">CARD 01</div><h3>系统是工具，逻辑是根本</h3><p>业务手册通常告诉我们字段怎么填、按钮怎么点，但真正决定操作是否准确的，是对业务逻辑的理解。流程变化时，记住按钮的人容易失去方向，理解逻辑的人才能判断下一步。</p><span class="highlight">系统回答“怎么操作”，业务逻辑回答“为什么这样操作”。</span></article>
+
+      <article class="card" id="card-02"><div class="card-no">CARD 02</div><h3>四类业务形态，不能套用同一个固定流程</h3><div class="mode-grid"><div class="mode"><b>传统外贸</b><span>赚取买卖差价，关注售价、采购成本与毛利。</span></div><div class="mode"><b>采购代理</b><span>收取服务费或佣金，关注服务效率与客户信任。</span></div><div class="mode"><b>义乌库存货盘</b><span>通过库存周转获利，关注积压、资金和仓储。</span></div><div class="mode"><b>跨境电商</b><span>属于另一套业务与系统，本课不展开。</span></div></div><p>同样是“买货、卖货、出运”，业务模式不同，流程顺序、跟单重点、盈利方式和风险承担都会改变。</p></article>
+
+      <article class="card" id="card-03"><div class="card-no">CARD 03</div><h3>标准流程：从客户询盘到收汇付款</h3><p>传统外贸包含八个环环相扣的环节。每一环的输出，都是下一环的输入；前一步信息不准确，问题往往会在后续交付或结算阶段被放大。</p><div class="flow"><span>客户询盘</span><i>→</i><span>产品报价</span><i>→</i><span>销售成交</span><i>→</i><span>供应商采购</span><i>→</i><span>跟单执行</span><i>→</i><span>验货准备</span><i>→</i><span>配载交运</span><i>→</i><span>收汇统计</span></div><span class="highlight">产品库、供应商库和客户库是流程的基础数据；基础信息准确，后续流转才会顺畅。</span></article>
+
+      <article class="card" id="card-04"><div class="card-no">CARD 04</div><h3>前半程逻辑：把客户约定变成供应商可执行的要求</h3><div class="check-grid"><div class="check"><b>询盘与报价</b><span>确认产品、价格、包装、交期和物流；信息不实，价格就会失真。</span></div><div class="check"><b>销售成交</b><span>用外销合同锁定价格、交期、条款、包装和验货方式，并校验信保额度。</span></div><div class="check"><b>供应商采购</b><span>把客户约定同步给工厂；采购质量直接决定最终交付质量。</span></div></div><p>前半程的核心，是把客户语言准确翻译成内部和供应商都能执行、核对与追踪的业务要求。</p></article>
+
+      <article class="card" id="card-05"><div class="card-no">CARD 05</div><h3>后半程逻辑：把生产结果变成可交付、可结算的成果</h3><div class="check-grid"><div class="check"><b>跟单执行</b><span>跟进生产、产前样与包装，把客户要求落实到工厂各环节。</span></div><div class="check"><b>验货准备</b><span>通过我司、工厂或第三方验货把关质量；不通过则返工或评估风险。</span></div><div class="check"><b>交运与收汇</b><span>订舱出运后形成议付与开票资料，开船日和 ETA 影响收付款节点。</span></div></div><span class="highlight">询谈 → 下单 → 生产 → 交付 → 收汇，任何环节的信息偏差都会影响最终结果。</span></article>
+
+      <article class="card" id="card-06"><div class="card-no">CARD 06</div><h3>洽谈的本质：三卡一致</h3><p>和客户逐项确认“三卡”信息，才能让订单、采购、生产和出运建立在同一组事实之上，避免在后程出现价格、交期、包装或物流纠纷。</p><div class="check-grid"><div class="check"><b>产品卡 · 谈什么</b><span>产品、价格、包装、交期。</span></div><div class="check"><b>生产卡 · 谁来生产</b><span>供应商、采购价、产能交期。</span></div><div class="check"><b>物流卡 · 谁来运输</b><span>启运港、目的港、报关信息。</span></div></div><span class="highlight">三卡一致，订单才立得住。</span></article>
+
+      <article class="card" id="card-07"><div class="card-no">CARD 07</div><h3>跟单，是客户、供应商与交付之间的连接器</h3><p>跟单不是简单执行订单，而是把客户需求、供应商进度、交期和物流安排连接成一个整体。任何一个信息偏差，都可能影响交付效率与客户体验。</p><div class="compare"><div class="mini"><b>过程关注</b><p>交期与数量、包装与唛头、验货与检测、装柜方案。</p></div><div class="mini"><b>结果关注</b><p>单证信息、付款节点、客户要求是否被准确落实。</p></div></div><span class="highlight">配载交运不是最后一步才开始，而要在订单执行过程中提前考虑。</span></article>
+
+      <article class="card" id="card-08"><div class="card-no">CARD 08</div><h3>配载交运：五个节点，环环依赖</h3><p>出运链条从订舱开始，装柜确认的结果会直接影响报关、议付和财务结算，因此不能等货做好以后才临时规划。</p><div class="flow"><span>订舱</span><i>→</i><span>商检</span><i>→</i><span>装柜</span><i>→</i><span>报关</span><i>→</i><span>开船</span></div><ul><li>涉检商品可能需要分开报关。</li><li>装柜明细是报关和结算的重要依据。</li><li>开船后形成议付资料与开票通知，进入财务结算。</li></ul></article>
+
+      <article class="card" id="card-09"><div class="card-no">CARD 09</div><h3>特殊场景：义乌库存采购为什么不能套用标准流程</h3><div class="compare"><div class="mini"><b>一般贸易 · 订单驱动</b><p>客户下单 → 公司采购 → 工厂生产 → 公司交付。重点盯生产进度、交期与质量。</p></div><div class="mini red"><b>库存采购 · 库存驱动</b><p>公司先采购入仓 → 等待客户需求 → 从库存出货。重点盯周转、积压、资金占用和仓储。</p></div></div><p>两种模式不仅顺序不同，风险量级也不同。库存判断失误，可能同时造成资金占用、产品滞销和仓储成本。</p><span class="highlight">先问“这是什么业务模式”，再决定用什么流程跟进。</span></article>
+
+      <article class="card" id="card-10"><div class="card-no">CARD 10</div><h3>采购代理与传统外贸：角色、收益和风险承担不同</h3><div class="compare"><div class="mini"><b>传统外贸 · 贸易商</b><p>公司买断货物，通过买卖差价盈利，并承担库存、汇率和交易风险。</p></div><div class="mini green"><b>采购代理 · 买方代表</b><p>不买断货物，通过服务费或佣金盈利，主要交易风险由买方承担。</p></div></div><p>模式变化后，跟单的工作重心也会变化：传统外贸更关注交易利润与交付风险；采购代理更关注采购服务、供应商管理和客户信任。</p></article>
+    </div>
+  </section>
+
+  <section class="section" id="review">
+    <h2>课程总结：三句话</h2>
+    <div class="takeaways"><div class="takeaway"><em>01 · 业务链条</em><h3>流程不是固定模板</h3><p>外贸流程围绕客户需求、供应链执行和交付结果展开。</p></div><div class="takeaway"><em>02 · 逻辑为王</em><h3>系统操作只是表层</h3><p>真正重要的是理解每一步背后的业务逻辑。</p></div><div class="takeaway"><em>03 · 先判断后操作</em><h3>特殊场景有正确顺序</h3><p>先判断业务模式，再判断流程顺序，最后才是系统操作。</p></div></div>
+  </section>
+
+  <section class="section action-section" id="actions">
+    <span class="action-kicker">落地练习 · 真实订单判断</span>
+    <h2>用四个问题梳理一个正在跟进的订单</h2>
+    <div class="action-grid"><div class="action"><em>STEP 01</em><b>判断业务模式</b>它属于传统外贸、采购代理，还是库存出货？</div><div class="action"><em>STEP 02</em><b>画出流程顺序</b>订单从哪里开始，下一步由谁承接？</div><div class="action"><em>STEP 03</em><b>标记关键风险</b>交期、质量、库存、物流或付款，哪里最容易出错？</div><div class="action"><em>STEP 04</em><b>写出下一步动作</b>需要确认什么信息、推动谁、在什么时间反馈？</div></div>
+  </section>
+
+  <section class="section quote-section"><h2>一句话带走</h2><strong>不要从系统按钮开始理解业务，要从业务模式和交付结果开始理解系统。</strong><p>先判断，再排序，后操作；让系统真正服务于业务。</p></section>
+
+  <section class="section"><h2>关联课程</h2><div class="related"><a href="../0516/0516-preview.html"><small>0516 · 外贸基础</small><b>《外贸三要素与基础认识》</b></a><a href="../0608/0608-preview.html"><small>0608 · 交易谈判</small><b>《交易与谈判的撮合》</b></a><a href="../0731/0731-preview.html"><small>0731 · 业务增长</small><b>《从 0 到 $4M：外贸业务增长破局课》</b></a></div></section>
+
+  <section class="section cta"><a href="../index.html" class="cta-link"><div><div class="cta-title">返回课程目录</div><div class="cta-subtitle">继续查看前程讲堂课程知识库</div></div><span class="cta-arrow">→</span></a></section>
+  <footer>前程讲堂 · KNOWLEDGE ARCHIVE · 2026.08</footer>
+</main>
+</body>
+</html>
